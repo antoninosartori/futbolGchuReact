@@ -1,0 +1,119 @@
+.tabla-container form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--margin-X);
+}
+
+.tabla-container form select{
+    outline: none;
+    border: none;
+    background-color: var(--color2);
+    font-family: var(--fontFamily);
+    font-size: var(--fontSizeText-lg);
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border: 1px solid var(--color1);
+    border-radius: 10px;
+}
+
+.tabla-container table{
+    width: 100%;
+    margin: var(--margin-Y) auto;
+    font-size: var(--fontSizeText-lg);
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tabla-container table thead{
+    color: var(--color2);
+}
+
+.tabla-container table thead tr th {
+    text-transform: uppercase;
+    padding: 2px 6px;
+}
+
+.tabla-container table thead tr th {
+    background-color: var(--color1);
+}
+
+.posiciones-container table thead tr th:nth-child(2){
+    width: 40%;
+}
+
+.tabla-container table tbody{
+    border-collapse: collapse;
+}
+
+.tabla-container table tbody tr td {
+    text-transform: uppercase;
+    padding: 5px;
+    color: var(--color1);
+}
+
+.tabla-container table tbody tr .td-nombreEquipo{
+    text-align: left;
+    display: flex;
+    gap: var(--margin-X);
+}
+
+.td-nombreEquipo .td-escudoEquipo img{
+    width: 18px;
+    height: auto;
+    object-fit: cover;
+}
+
+.tabla-container table tbody tr .td-nombreEquipoCorto{
+    display: none;
+}
+
+.tabla-container table tbody tr:nth-child(odd) td{
+    background-color: #c8c8c8;
+}
+.tabla-container table tbody tr:nth-child(even) td{
+    background-color: #bfbfbf;
+}
+
+
+/* border redondeados para las esquinas de la tabla */
+.tabla-container table thead tr th:first-child{
+    border-top-left-radius: 5px;
+}
+.tabla-container table thead tr th:last-child{
+    border-top-right-radius: 5px;
+}
+
+.tabla-container table tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 5px;
+}
+.tabla-container table tbody tr:last-child td:first-child{
+    border-bottom-left-radius: 5px;
+}
+
+/* calendario */
+.calendario-container table tbody tr .td-nombreEquipo{
+    justify-content: space-between;
+    gap: 0;
+}
+
+.calendario-container table thead tr th:nth-child(1), .calendario-container table thead tr th:nth-child(3){
+    width: 40%;
+}
+
+tr:hover{
+    /* opacity: .8; */
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .tabla-container table tbody tr .td-nombreEquipoLargo{
+        display: none;
+    }
+    
+    .tabla-container table tbody tr .td-nombreEquipoCorto{
+        display: block;
+    }
+}

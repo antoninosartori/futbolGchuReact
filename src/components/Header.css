@@ -1,0 +1,18 @@
+header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: var(--headerHeight);
+    background-color: var(--color1);
+    z-index: 100;
+    
+}
+
+nav{
+    max-width: 992px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

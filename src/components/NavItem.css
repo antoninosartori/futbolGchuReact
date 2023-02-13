@@ -1,0 +1,17 @@
+.navItem{
+    color: var(--color2);
+    font-size: var(--fontSizeNavItem-lg);
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: var(--borderRadius);
+}
+
+.navItem:hover{
+    background-color: var(--color3);
+}
+
+@media (max-width: 576px) {
+    .navItem{
+    font-size: var(--fontSizeNavItem-sm);
+    }
+}
