@@ -8,10 +8,50 @@ header{
     
 }
 
-nav{
+header nav{
     max-width: 992px;
     margin: 0 auto;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav .nav-left{
+    width: 30%;
+    height: 100%;
+}
+
+header nav .nav-left .nav-logo-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav .nav-left .nav-logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header nav .nav-left .nav-logo img{
+    width: var(--fontSizeLogo);
+    height: auto;
+}
+
+header nav .nav-left .nav-logo span{
+    font-size: var(--fontSizeLogo);
+    text-transform: uppercase;
+    color: #03498D;
+    font-weight: 900;
+}
+header nav .nav-left .nav-logo span:last-child{
+    color: #DE0225;
+}
+
+header nav .nav-right{
+    height: 100%;
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -10,6 +10,16 @@
     background-color: var(--color3);
 }
 
+.active{
+    background-color: var(--color2);
+    color: var(--color1);
+}
+
+.active:hover{
+    opacity: .95;
+    color: var(--color2);
+}
+
 @media (max-width: 576px) {
     .navItem{
     font-size: var(--fontSizeNavItem-sm);

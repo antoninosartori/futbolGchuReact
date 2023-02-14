@@ -2,6 +2,87 @@
     overflow-x: hidden;
 }
 
+/* carrusel */
+.carrusel-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.carrusel-articulo{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border: 1px solid var(--color1);    
+    border-radius: 10px;
+    margin-right: 40px;
+    color: var(--color1);
+}
+
+.carrusel-fila{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.carrusel-groupItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel-infoPartido{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color1);
+    padding: 5px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.carrusel-infoPartido span{
+    color: var(--color2);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.carrusel-escudo{
+    padding: 5px;
+    width: 20%;
+}
+
+.carrusel-escudo img{
+    width: 16px;
+}
+
+.carrusel-equipo{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.carrusel-gol-dia{
+    padding: 5px ;
+    width: 30%;
+}
+
+.react-multiple-carousel__arrow{
+    background-color: var(--color1) !important;
+}
+
+.react-multiple-carousel__arrow:hover{
+    opacity: .8 !important;
+}
+
+.carrusel-container .genericButton-enlace{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* noticias */
 .noticias-container{
     border-top: 5px solid var(--color1);
     border-bottom: 5px solid var(--color1);
