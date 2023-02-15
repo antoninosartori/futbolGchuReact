@@ -11,14 +11,14 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 // funciones
 import { match } from './utils/functions/match'
+import { getData } from './utils/functions/getData'
 
 function App() {
   const [allPartidos, setAllPartidos] = useState([])
 
   useEffect(() => {
-    fetch('https://api.steinhq.com/v1/storages/63ece6e7eced9b09e9beec58/partidos')
-    .then((response) => response.json())
-    .then((data) => setAllPartidos(data));
+    const endpoint = '/partidos';
+    getData(endpoint).then(setAllPartidos)
   }, [] )
 
   allPartidos && allPartidos?.map(partido => {

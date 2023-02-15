@@ -49,3 +49,28 @@
     height: 600px;    
 } */
 
+@media (max-width: 992px) {
+    .modal-cierre{
+        top: 100px;
+        right: 50px;
+    }
+
+    .modal-container div{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-cierre{
+        top: 80%;
+        right: 46%;
+        font-size: 80px;
+    }
+
+    .modal-container div{
+        height: 100%;
+        width: 100%;
+    }
+}
+

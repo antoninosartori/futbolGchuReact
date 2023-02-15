@@ -11,6 +11,7 @@ import Modal from '../components/Modal';
 // constantes
 import { EQUIPOS } from '../utils/constantes/equipos';
 import { PARTIDOS } from '../utils/constantes/partidos';
+import { getData } from '../utils/functions/getData';
 const THEAD = [
     {name: 'pos'},
     {name: 'equipo'},
@@ -60,9 +61,8 @@ const Home = ( ) => {
     }
 
     useEffect(() => {
-        fetch('https://api.steinhq.com/v1/storages/63ece6e7eced9b09e9beec58/noticias')
-        .then((response) => response.json())
-        .then((data) => setNoticias(data));
+        const endpoint = '/noticias';
+        getData(endpoint).then(setNoticias);
     }, [] )
 
     return(
@@ -78,7 +78,7 @@ const Home = ( ) => {
             
             {/* carrusel */}
             <section className='carrusel-container'>
-                <Carousel responsive={responsive} >
+                <Carousel responsive={responsive}  >
                     {
                         PARTIDOS.slice(0, 6).map(partido => {
                             return (
@@ -216,7 +216,7 @@ const Home = ( ) => {
             {/* galeria */}
             <section className='galeria-container'>
                 <Title>galeria</Title>
-                <div className='galeria-flexContainer'>
+                <div className='galeria-gridContainer'>
                     <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img4.png" alt="" />
                     <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img1.png" alt="" />
                     <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img3.png" alt="" />
