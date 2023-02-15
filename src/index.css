@@ -70,6 +70,7 @@ section {
   color: var(--color1);
   font-size: var(--fontSizeTitle-lg);
   margin-top: var(--margin-Y);
+  margin-bottom: var(--margin-Y);
 }
 
 .publicidad-container {

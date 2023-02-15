@@ -1,6 +1,7 @@
 footer{
     width: 100vw;
-    height: 150px;
+    height: auto;
+    padding: 1.5em;
     background-color: #232323;
 }
 

@@ -220,6 +220,7 @@ const Home = ( ) => {
                     <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img4.png" alt="" />
                     <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img1.png" alt="" />
                     <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img3.png" alt="" />
+                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img4.png" alt="" />
                 </div>
                 { openModal && < Modal handleModal={handleModal} image={image} /> }
             </section>
