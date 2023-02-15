@@ -1,0 +1,51 @@
+.modal-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #000000ce;
+    display: grid;
+    place-items: center;
+    
+}
+
+.modal-container div{
+    position: relative;
+    height: max-content;
+    width: max-content;
+    display: grid;
+    place-items: center;
+}
+
+.modal-cierre{
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    z-index: 20;    
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color2);
+}
+
+.modal-cierre:hover{
+    transition: var(--transitionTime);
+    transform: rotate(180deg);
+    color: var(--color1);
+}
+
+.modal-image{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* .modal-container div .modal-imageDiv{
+    background-position: center;
+    background-size: cover;
+    width: 600px;
+    height: 600px;    
+} */
+

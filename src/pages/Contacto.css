@@ -1,0 +1,143 @@
+.contacto-container{
+    width: 100%;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contacto-informacion{
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    width: 49%;
+    gap: 50px;
+}
+
+.contacto-informacion--publicidad, .contacto-informacion--disclaimer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+}
+
+.contacto-informacion--publicidad img{
+    width: 40px;
+    height: auto;
+}
+
+.contacto-informacion--publicidad p{
+    font-weight: 700;
+    color: var(--color1);
+    font-size: 16px;
+}
+
+.contacto-informacion--disclaimer {
+    gap: 0;
+}
+
+.contacto-informacion--disclaimer p{
+    color: #00000099;
+}
+
+.contacto-informacion--disclaimer p span{
+    color: #000;
+    font-weight: 700;
+}
+
+/* formulario */
+.contacto-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 49%;
+    gap: 10px;
+}
+
+.contacto-form--input{
+    font-size: var(--fontSizeText-lg);
+    font-family: var(--fontFamily);
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: var(--color1);
+    border-radius: 10px;
+    color: var(--color2);
+    padding: 10px;
+}
+
+.contacto-form--input::placeholder{
+    color: var(--color2);
+}
+
+.contacto-form--button{
+    width: 30%;
+    cursor: pointer;
+    color: var(--color2);
+    transition: var(--transitionTime);
+}
+
+.contacto-form--input:hover{
+    opacity: .8;
+    transition: var(--transitionTime);
+}
+
+.contacto-form--button:hover{
+    opacity: 1;
+    background-color: var(--color2);
+    color: var(--color1);
+    outline: 1px solid var(--color1);
+}
+
+@media (max-width: 992px) {
+    .contacto-container{
+        flex-direction: column;
+    }
+
+    .contacto-informacion{
+        padding-top: 50px;
+        width: 90%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contacto-informacion--publicidad{
+        align-items: center;
+    }
+
+    .contacto-informacion--publicidad p{
+        text-align: center;
+    }
+    
+    .contacto-informacion--disclaimer {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacto-informacion{
+        width: 90%;
+        flex-direction: column;
+    }
+    
+    .contacto-informacion--disclaimer {
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contacto-informacion--disclaimer p{
+        text-align: center;
+    }
+
+    .contacto-form{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        gap: 10px;
+    }
+}

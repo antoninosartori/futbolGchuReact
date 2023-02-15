@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Header.css'
-
+// componentes
+import { Link } from 'react-router-dom'
+import NavItem from '../components/NavItem'
 // assets
 import sportsSoccer from '../assets/sports_soccer_green.svg'
-import NavItem from '../components/NavItem'
-import { Link } from 'react-router-dom'
+import menuIcon from '../assets/list.svg'
 
 const navItems = 
     [
@@ -27,7 +28,13 @@ const navItems =
     ]
 
 const Header = () => {
+    const [isToggle, setIsToggle] = useState(false)
 
+    const toggleMenu = () => {
+        setIsToggle(!isToggle)
+    }
+
+    const classList = isToggle ? 'nav-right toggleMenu--active' : 'nav-right toggleMenu--inactive';
 
     return(
         <header>
@@ -42,15 +49,16 @@ const Header = () => {
                     </div>
                     <div className="changeDarkMode"></div>
                 </div>
-                <div className="nav-right">
+                <div className={classList}>
                     {
                         navItems.map(navItem => {
                             return(
-                                < NavItem key={navItem.name} path={navItem.path} > {navItem.name} </ NavItem>
+                                < NavItem key={navItem.name} path={navItem.path} closeMenu={toggleMenu} > {navItem.name} </ NavItem>
                             )
                             })
                     }
                 </div>
+                <button onClick={toggleMenu} className='nav-toggleMenu'> <img src={menuIcon} alt="boton del menu" /> </button>
                 
             </nav>
         </header>

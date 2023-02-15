@@ -8,6 +8,10 @@
     flex-direction: column;
 }
 
+.react-multi-carousel-list{
+    cursor: grab !important;
+}   
+
 .carrusel-articulo{
     display: flex;
     flex-direction: column;
@@ -163,6 +167,30 @@
 .posicionesPreview-sideContainer h2{
     color: var(--color1);
     text-transform: uppercase;
+}
+
+/* galeria */
+
+
+.galeria-flexContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.galeria-flexContainer img{
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.galeria-flexContainer img:hover{
+    opacity: .8;
 }
 
 /* publicidad */

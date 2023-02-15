@@ -10,10 +10,10 @@ const Footer = () => {
             <nav>
                 <div className='footer-texto'>
                     <div className='footer-logo'>
-                        <img src={sportsSoccer} alt="" />
+                        <img src={sportsSoccer} alt="logo de Futbol Gchu" />
                         <span>FG</span>
                     </div>
-                    <h4>Futbol Gchu es desarrollado y administrado por <span>Kumpel</span> .</h4>
+                    <h4>Futbol Gchu es desarrollado y administrado por <a href='https://www.kumpel.com.ar' target='_blank' >Kumpel</a>.</h4>
                 </div>
                 <div className='footer-redes'>
                     <a href="https://www.kumpel.com.ar" target='_blank'>

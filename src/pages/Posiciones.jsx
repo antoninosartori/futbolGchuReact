@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import './Posiciones.css'
-import { EQUIPOS } from '../utils/constantes/equipos'
+// componentes
 import Title from '../components/Title'
 import ImagenPublicitaria from '../components/ImagenPublicitaria';
-
+// constantes
+import { EQUIPOS } from '../utils/constantes/equipos'
 const THEAD = [
     {name: 'pos'},
     {name: 'equipo'},
@@ -16,7 +17,6 @@ const THEAD = [
     {name: 'gc'},
     {name: 'dif'}
 ];
-
 const selectDivision = [{value: 'primera', text: 'primera'}, {value: 'sub', text: 'sub 23'}, ]
 const selectCopa = [
     {value: 'grupo a', text: 'grupo a'},

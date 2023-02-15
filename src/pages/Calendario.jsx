@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
+// componentes
 import ImagenPublicitaria from '../components/ImagenPublicitaria'
 import Title from '../components/Title'
 import { PARTIDOS } from '../utils/constantes/partidos'
-
+// constantes
 const THEAD = 
 [
     {name: 'local'},
     {name: 'goles'},
     {name: 'visitante'}
 ]
-
 const selectDivision = [{value: 'primera', text: 'primera'}, {value: 'sub', text: 'sub 23'}, ]
 const selectCopa = [
     {value: 'grupo a', text: 'grupo a'},

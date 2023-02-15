@@ -1,0 +1,20 @@
+.mensajeEmail-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensajeEmail-container p{
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.mensajeEnviado{
+    color: #06923B;
+}
+
+.mensajeFallido{
+    color: #DE0225;
+}

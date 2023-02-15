@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
+// estilos
 import './Home.css'
+import 'react-multi-carousel/lib/styles.css';
+// componentes
 import Title from '../components/Title'
 import ImagenPublicitaria from '../components/ImagenPublicitaria.jsx';
+import Carousel from 'react-multi-carousel';
+import GenericButton from '../components/GenericButton';
+import Modal from '../components/Modal';
+// constantes
 import { EQUIPOS } from '../utils/constantes/equipos';
 import { PARTIDOS } from '../utils/constantes/partidos';
-import GenericButton from '../components/GenericButton';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-
-// constantes
 const THEAD = [
     {name: 'pos'},
     {name: 'equipo'},
     {name: 'pts'},
     {name: 'pj'},
 ];
-
 const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -34,7 +35,7 @@ const responsive = {
       breakpoint: { max: 464, min: 0 },
       items: 1
     }
-  };
+};
 
 const Home = ( ) => {
     // noticias
@@ -47,8 +48,19 @@ const Home = ( ) => {
     const [ posicionesPreviewB, setPosicionesPreviewB ] = useState(posiciones.filter(equipos => equipos.division === 'b' && equipos.categoria === 'primera')
         .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif)).slice(0,3));
 
+    /* galeria */
+    const [ openModal, setOpenModal ] = useState(false);
+    const [ image, setImage ] = useState();
+
+    const handleModal = (e) => {
+        setOpenModal(!openModal)
+        const src = e.target.attributes.src?.value
+        if(!src) { return } else {setImage(src)}
+        
+    }
+
     useEffect(() => {
-        fetch('https://sheetdb.io/api/v1/yfbfn065or6yn?sheet=noticias')
+        fetch('https://api.steinhq.com/v1/storages/63ece6e7eced9b09e9beec58/noticias')
         .then((response) => response.json())
         .then((data) => setNoticias(data));
     }, [] )
@@ -60,6 +72,7 @@ const Home = ( ) => {
                 imgSrc='https://drive.google.com/uc?export=view&id=19v-ANas16mSa8DlGOzklBgv04fpUnqKS&rl'
                 alto='270px'
                 ancho='100%'
+                to='/contacto'
                 >
             </ImagenPublicitaria >
             
@@ -201,7 +214,16 @@ const Home = ( ) => {
 
 
             {/* galeria */}
-
+            <section className='galeria-container'>
+                <Title>galeria</Title>
+                <div className='galeria-flexContainer'>
+                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img4.png" alt="" />
+                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img1.png" alt="" />
+                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img3.png" alt="" />
+                </div>
+                { openModal && < Modal handleModal={handleModal} image={image} /> }
+            </section>
+                
             
         </main>
         

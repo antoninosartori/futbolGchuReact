@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './NavItem.css'
-const NavItem = ({children, path}) => {
+const NavItem = ({children, path, closeMenu}) => {
     return(
-        <NavLink className='navItem' to={path}>
+        <NavLink onClick={closeMenu} className='navItem' to={path}>
             {children}
         </NavLink>
     )
