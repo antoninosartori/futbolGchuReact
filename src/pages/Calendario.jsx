@@ -26,7 +26,7 @@ const Calendario = () => {
     const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'copa gchu' && partidos.categoria === 'grupo a' && partidos.jornada === 1))
     const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
     const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
-    const [ jornada, setJornada ] = useState(1) // estado inicial que van a ser cambiados por los select
+    const [ jornada, setJornada ] = useState('1') // estado inicial que van a ser cambiados por los select
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const Calendario = () => {
     } 
 
     const changeSelectJornada = (event) => {
-        const value = parseInt(event.target.value);
+        const value = event.target.value;
         setJornada(value)
     }
 

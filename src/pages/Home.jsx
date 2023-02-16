@@ -80,7 +80,7 @@ const Home = ( ) => {
             <section className='carrusel-container'>
                 <Carousel responsive={responsive}  >
                     {
-                        PARTIDOS.slice(0, 6).map(partido => {
+                        PARTIDOS.filter(partido => partido.categoria === "copa gchu" || "primera" ).slice(0, 6).map(partido => {
                             return (
                                 <article className='carrusel-articulo'>
                                     <div className="carrusel-fila">

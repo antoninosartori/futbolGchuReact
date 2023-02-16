@@ -15,9 +15,9 @@ const ImagenPublicitaria = ({children, imgSrc, alto, ancho, link, to  }) => {
                     }   
                 }
             >
-                {link && <a className='publicidad-enlace' target='_blank' href={link}></a> }
-                {!link && to && <Link className='publicidad-enlace' to={to}></Link> }
-                {children}
+                {link && !to && <a className='publicidad-enlace' target='_blank' href={link}> { children } </a> }
+                {!link && to && <Link className='publicidad-enlace' to={to}> { children } </Link> }
+                
         </section>
     )
 }
