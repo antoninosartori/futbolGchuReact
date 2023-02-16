@@ -23,19 +23,20 @@ const selectCopa = [
 const Calendario = () => {
 
     const [allPartidos, setAllPartidos] = useState(PARTIDOS)
-    const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'copa gchu' && partidos.categoria === 'grupo a'))
+    const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'copa gchu' && partidos.categoria === 'grupo a' && partidos.jornada === 1))
     const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
     const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
+    const [ jornada, setJornada ] = useState(1) // estado inicial que van a ser cambiados por los select
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
 
-    // useEffect(() => {
-    //     setPartidosFiltrados(allPartidos.filter(partidos => partidos.division === division && partidos.categoria === categoria))
+    useEffect(() => {
+        setPartidosFiltrados(allPartidos.filter(partidos => partidos.division === division && partidos.categoria === categoria && partidos.jornada === jornada))
 
-    // }, [division, categoria] )
+    }, [division, categoria, jornada] )
 
-    // useEffect(() => {
-    //     setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
-    // }, [division])
+    useEffect(() => {
+        setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
+    }, [division])
 
     const changeSelectDivision = (event) => {
         const value = event.target.value;
@@ -45,6 +46,11 @@ const Calendario = () => {
         const value = event.target.value;
         setCategoria(value)
     } 
+
+    const changeSelectJornada = (event) => {
+        const value = parseInt(event.target.value);
+        setJornada(value)
+    }
 
     return(
         <main>
@@ -59,17 +65,22 @@ const Calendario = () => {
                 <Title>Calendario</Title>
 
                 <form action="">
-                    <select value={division} name="division" id="" onChange={changeSelectDivision}>
+                    <select value={division} name="division" onChange={changeSelectDivision}>
                         <option value="a">division a</option>
                         <option value="b">division b</option>
                         <option value="copa gchu">copa gchu</option>
                     </select>
-                    <select value={categoria} name="categoria" id="categoria" onChange={changeSelectCategoria}>
+                    <select value={categoria} name="categoria" onChange={changeSelectCategoria}>
                         {selectsOptions.map(item => {
                             return(
                                 <option key={item.value} value={item.value} > {item.text} </option>
                                 )
                         } ) }
+                    </select>
+                    <select value={jornada} name="jornada" onChange={changeSelectJornada}>
+                        <option value='1'>fecha 1</option>
+                        <option value='2'>fecha 2</option>
+                        <option value='3'>fecha 3</option>
                     </select>
                 </form>
 
