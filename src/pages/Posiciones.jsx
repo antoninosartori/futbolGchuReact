@@ -13,10 +13,11 @@ const THEAD = [
     {name: 'g'},
     {name: 'e'},
     {name: 'p'},
-    {name: 'gf'},
-    {name: 'gc'},
+    {name: 'gf', className: 'th-goles'},
+    {name: 'gc', className: 'th-goles'},
     {name: 'dif'}
 ];
+
 const selectDivision = [{value: 'primera', text: 'primera'}, {value: 'sub', text: 'sub 23'}, ]
 const selectCopa = [
     {value: 'grupo a', text: 'grupo a'},
@@ -90,7 +91,7 @@ const Posiciones = () => {
                 <table>
                     <thead>
                         <tr>
-                            {THEAD.map(header => <th> {header.name} </th> )}
+                            {THEAD.map(header => <th className={header?.className} > {header.name} </th> )}
                         </tr>
                     </thead>
                     <tbody>
@@ -108,8 +109,8 @@ const Posiciones = () => {
                                             <td>{item.pg}</td>
                                             <td>{item.pe}</td>
                                             <td>{item.pp}</td>
-                                            <td>{item.gf}</td>
-                                            <td>{item.gc}</td>
+                                            <td className='td-goles'>{item.gf}</td>
+                                            <td className='td-goles'>{item.gc}</td>
                                             <td>{item.dif}</td>
                                         </tr>
                                     )

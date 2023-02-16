@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: var(--margin-X);
 }
 
@@ -108,6 +109,12 @@ tr:hover{
     cursor: pointer;
 }
 
+@media (max-width: 992px) {
+    .tabla-container table{
+        width: 95%;
+    }
+}
+
 @media (max-width: 768px) {
     .tabla-container table tbody tr .td-nombreEquipoLargo{
         display: none;
@@ -115,5 +122,37 @@ tr:hover{
     
     .tabla-container table tbody tr .td-nombreEquipoCorto{
         display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .tabla-container form select{
+        font-size: var(--fontSizeText-md);
+        padding: 4px 6px;
+    }
+
+    .posiciones-container table{
+        font-size: var(--fontSizeText-md);
+    }
+
+    .posiciones-container table tbody tr td{
+        padding: 5px 2px;
+    }
+
+    .posiciones-container table thead tr th:nth-child(2){
+        width: 20%;
+    }
+
+    .posiciones-container table tbody tr .td-nombreEquipo{
+        gap: 2px;
+    }
+}
+
+@media (max-width: 380px) {
+    .td-goles{
+        display: none;
+    }
+    .th-goles{
+        display: none;
     }
 }
