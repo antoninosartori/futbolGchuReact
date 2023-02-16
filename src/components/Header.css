@@ -3,7 +3,8 @@ header{
     top: 0;
     left: 0;
     width: 100vw;
-    height: var(--headerHeight);
+    /* height: var(--headerHeight); */
+    padding: 0.8em;
     background-color: var(--color1);
     z-index: 10000;
 }

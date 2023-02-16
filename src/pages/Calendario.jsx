@@ -28,14 +28,14 @@ const Calendario = () => {
     const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
 
-    useEffect(() => {
-        setPartidosFiltrados(allPartidos.filter(partidos => partidos.division === division && partidos.categoria === categoria))
+    // useEffect(() => {
+    //     setPartidosFiltrados(allPartidos.filter(partidos => partidos.division === division && partidos.categoria === categoria))
 
-    }, [division, categoria] )
+    // }, [division, categoria] )
 
-    useEffect(() => {
-        setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
-    }, [division])
+    // useEffect(() => {
+    //     setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
+    // }, [division])
 
     const changeSelectDivision = (event) => {
         const value = event.target.value;

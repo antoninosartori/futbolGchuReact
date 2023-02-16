@@ -118,6 +118,7 @@
 .noticia-titulo{
     font-size: var(--fontSizeSubtitle-lg);
     font-weight: 700;
+    margin-bottom: 0.5em;
 }
 
 .noticia-cuerpo{

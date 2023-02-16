@@ -37,16 +37,16 @@ const Posiciones = () => {
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
 
     // filtra a las posiciones
-    useEffect(() => {
-        setPosicionesFiltradas(
-            posiciones.filter(equipos => equipos.division === division && equipos.categoria === categoria)
-            .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif)) )
+    // useEffect(() => {
+    //     setPosicionesFiltradas(
+    //         posiciones.filter(equipos => equipos.division === division && equipos.categoria === categoria)
+    //         .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif)) )
         
-    },[division, categoria])
+    // },[division, categoria])
 
-    useEffect(() => {
-        setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
-    }, [division])
+    // useEffect(() => {
+    //     setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
+    // }, [division])
 
     const changeSelectDivision = (event) => {
         const value = event.target.value;

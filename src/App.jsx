@@ -16,10 +16,10 @@ import { getData } from './utils/functions/getData'
 function App() {
   const [allPartidos, setAllPartidos] = useState([])
 
-  useEffect(() => {
-    const endpoint = '/partidos';
-    getData(endpoint).then(setAllPartidos)
-  }, [] )
+  // useEffect(() => {
+  //   const endpoint = '/partidos';
+  //   getData(endpoint).then(setAllPartidos)
+  // }, [] )
 
   allPartidos && allPartidos?.map(partido => {
     match(
