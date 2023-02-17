@@ -4,7 +4,7 @@ import { sumaPunto } from "./sumaPunto";
 
 export function match(jornada, division, categoria ,dia, hora, equipoLocal, golLocal, equipoVisitante, golVisitante){
 
-    if(jornada === 'cuartos' || 'semi' || 'final' && categoria === 'copa gchu') {
+    if(jornada === 'cuartos' || 'semi' || 'final' && division === 'copa gchu') {
         let local = EQUIPOS.find(e => e.nombre_equipo === equipoLocal);
         let visitante = EQUIPOS.find(e => e.nombre_equipo === equipoVisitante);
 

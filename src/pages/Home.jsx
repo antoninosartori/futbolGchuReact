@@ -92,13 +92,13 @@ const Home = ( ) => {
             <section className='carrusel-container'>
                 <Carousel responsive={responsive}  >
                     {
-                        PARTIDOS.filter(partido => partido.categoria === "copa gchu" || "primera" ).slice(0, 6).map(partido => {
+                        PARTIDOS.filter(partido => partido.categoria === "copa gchu" || "primera" ).slice(0, 7).map(partido => {
                             return (
                                 <article className='carrusel-articulo'>
                                     <div className="carrusel-fila">
                                         <div className="carrousel-groupItem carrusel-infoPartido">
                                             <span className=''> {partido.division !== 'copa gchu' ? `division ${partido.division}` : 'copa gchu'} </span>
-                                            <span className=''> {`fecha ${partido.jornada}`} </span>
+                                            <span className=''> {partido.jornada !== 'cuartos' || 'semi' || 'final' ? `fecha ${partido.jornada}` : `${partido.jornada}` }</span>
                                         </div>
                                     </div>
                                     <div className='carrusel-fila'>
@@ -234,7 +234,6 @@ const Home = ( ) => {
                             <img src={foto.src} alt={foto.alt} onClick={handleModal} />
                         )
                     }) }
-                    
                 </div>
                 { openModal && < Modal handleModal={handleModal} image={image} /> }
             </section>
