@@ -24,18 +24,22 @@ function App() {
     getData(URL, endpoint).then(setAllPartidos)
   }, [] )
 
-  allPartidos && allPartidos?.map(partido => {
-    match(
-      partido.jornada,
-      partido.division,
-      partido.categoria,
-      partido.dia,
-      partido.hora,
-      partido.equipoLocal,
-      parseInt(partido.golLocal),
-      partido.equipoVisitante,
-      parseInt(partido.golVisitante))
-  })
+  allPartidos && allPartidos?.map(partido => 
+    {
+      match(
+        partido.jornada,
+        partido.division,
+        partido.categoria,
+        partido.dia,
+        partido.hora,
+        partido.equipoLocal,
+        parseInt(partido.golLocal),
+        partido.equipoVisitante,
+        parseInt(partido.golVisitante),
+        partido.goleadoresLocales,
+        partido.goleadoresVisitantes,
+      )
+    })
 
   return (
     <>

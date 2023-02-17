@@ -94,7 +94,12 @@
 }
 
 /* calendario */
+.calendario-container table tbody tr{
+    position: relative;
+}
+
 .calendario-container table tbody tr .td-nombreEquipo{
+    position: relative;
     justify-content: space-between;
     gap: 0;
 }
@@ -102,9 +107,111 @@
 .calendario-container table thead tr th:nth-child(1), .calendario-container table thead tr th:nth-child(3){
     width: 40%;
 }
+/* primera opcion de goleadores */
+.calendario-container table tbody .goleadores-visitantes-container, .calendario-container table tbody .goleadores-locales-container{
+    position: absolute;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--color1);
+    color: var(--color2);
+    border-radius: 10px;
+    opacity: 0;
+    padding: 4px;
+}
+
+.calendario-container table tbody .goleadores-visitantes-container{
+    left: 0;
+    align-items: flex-end;
+}
+
+.calendario-container table tbody .goleadores-locales-container{
+    right: 0;
+    align-items: flex-start;
+}
+
+.calendario-container table tbody .goleadores-locales-container span::before{
+    content: '⚽';
+    font-size: 20px;
+}
+
+.calendario-container table tbody .goleadores-visitantes-container span::after{
+    content: '⚽';
+    font-size: 20px;
+}
+
+
+.calendario-container table tbody tr:hover .goleadores-visitantes-container{
+    z-index: 10;
+    top: 100%;
+    opacity: 1;
+    transition:all var(--transitionTime);
+}
+
+.calendario-container table tbody tr:hover .goleadores-locales-container{
+    z-index: 10;
+    top: 100%;
+    opacity: 1;
+    transition:all var(--transitionTime);
+}
+
+.calendario-container table tbody .goleadores-locales-container span::before{
+    content: '⚽';
+    font-size: 20px;
+}
+
+/* segunda opcion de goleadores */
+.calendario-container  .goleadores-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    background-color: var(--color3);
+    border: 1px solid var(--color1);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: var(--color2);
+    opacity: 0;
+
+}
+
+.calendario-container  .goleadores-container .goleadores-locales, .goleadores-container .goleadores-visitantes{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+.calendario-container .goleadores-container .goleadores-locales{
+    align-items: flex-start;
+}
+
+.calendario-container .goleadores-container .goleadores-locales span::before{
+    content: '⚽';
+    font-size: 20px;
+}
+
+.calendario-container .goleadores-container .goleadores-visitantes span::after{
+    content: '⚽';
+    font-size: 20px;
+}
+
+.calendario-container .goleadores-container .goleadores-visitantes{
+    align-items: flex-end;
+}
+
+.calendario-container table tbody tr:hover .goleadores-container{
+    opacity: 1;
+    top: 100%;
+    z-index: 10;
+    transition: var(--transitionTime);
+}
+
 
 tr:hover{
-    /* opacity: .8; */
     font-weight: 700;
     cursor: pointer;
 }
@@ -145,6 +252,24 @@ tr:hover{
 
     .posiciones-container table tbody tr .td-nombreEquipo{
         gap: 2px;
+    }
+
+    /* calendario */
+    .calendario-container .goleadores-container{
+        flex-direction: column;
+        font-size: 16px;
+    }
+
+    .calendario-container .goleadores-container .goleadores-locales, .calendario-container .goleadores-container .goleadores-visitantes{
+        width: 100%;
+    }
+
+    .calendario-container .goleadores-container .goleadores-visitantes span::after{
+        font-size: 12px;
+    }
+
+    .calendario-container .goleadores-container .goleadores-locales span::before{
+        font-size: 12px;
     }
 }
 

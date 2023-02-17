@@ -92,21 +92,46 @@ const Calendario = () => {
                     </thead>
                     <tbody>
                         {partidosFiltrados?.map((item, idx) => {
+                             {console.log(item)}
                                     return(
+                                        <>
                                         <tr key={item.id}>
                                             <td className='td-nombreEquipo' >
-                                                <span className='td-escudoEquipo'><img src={item.local.escudo_equipo} alt="" /></span>
+                                                <span className='td-escudoEquipo'><img src={item.local.escudo_equipo} alt={`escudo del equipo de futbol ${item.local.nombre_equipo}`} /></span>
                                                 <span className='td-nombreEquipoLargo'> {item.local.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.local.nombre_equipo_short} </span>
                                             </td>
-                                            <td> {!item.golLocal ? item.dia : item.golLocal} </td>
-                                            <td> {!item.golVisitante ? item.hora : item.golVisitante} </td>
+                                            <td> { item.golLocal || item.golLocal === 0 ? item.golLocal : item.dia } </td>
+                                            <td> { item.golVisitante || item.golVisitante === 0 ? item.golVisitante : item.hora } </td>
                                             <td className='td-nombreEquipo'>
                                                 <span className='td-nombreEquipoLargo'> {item.visitante.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.visitante.nombre_equipo_short} </span>
-                                                <span className='td-escudoEquipo' ><img src={item.visitante.escudo_equipo} alt="" /></span>
+                                                <span className='td-escudoEquipo' ><img src={item.visitante.escudo_equipo} alt={`escudo del equipo de futbol ${item.visitante.nombre_equipo}`} /></span>
                                             </td>
+                                            <div className='goleadores-container'>
+                                                <div className='goleadores-locales'> {item.goleadoresLocales && item.goleadoresLocales.split(',').map(gol => <span> {gol} </span> )} </div>
+                                                <div className='goleadores-visitantes'> {item.goleadoresVisitantes && item.goleadoresVisitantes.split(',').map(gol => <span> {gol} </span> )} </div>
+                                            </div>
                                         </tr>
+                                        
+                                        {/* <tr key={item.id}>
+                                            <td className='td-nombreEquipo' >
+                                                <span className='td-escudoEquipo'><img src={item.local.escudo_equipo} alt={`escudo del equipo de futbol ${item.local.nombre_equipo}`} /></span>
+                                                <span className='td-nombreEquipoLargo'> {item.local.nombre_equipo} </span>
+                                                <span className='td-nombreEquipoCorto'> {item.local.nombre_equipo_short} </span>
+                                                {item.goleadoresLocales && <div className='goleadores-locales-container'>{ item?.goleadoresLocales?.split(',').map(gol => <span> {gol} </span> ) }</div>}
+                                            </td>
+                                            <td> { item.golLocal || item.golLocal === 0 ? item.golLocal : item.dia } </td>
+                                            <td> { item.golVisitante || item.golVisitante === 0 ? item.golVisitante : item.hora } </td>
+                                            <td className='td-nombreEquipo'>
+                                                <span className='td-nombreEquipoLargo'> {item.visitante.nombre_equipo} </span>
+                                                <span className='td-nombreEquipoCorto'> {item.visitante.nombre_equipo_short} </span>
+                                                <span className='td-escudoEquipo' ><img src={item.visitante.escudo_equipo} alt={`escudo del equipo de futbol ${item.visitante.nombre_equipo}`} /></span>
+                                                { item.goleadoresVisitantes && <div className='goleadores-visitantes-container'>{ item?.goleadoresVisitantes?.split(',').map(gol => <span> {gol} </span> ) }</div>}
+                                            </td>
+                                        </tr> */}
+                                        </>
+                                        
                                         
                                     )
                                 })}
