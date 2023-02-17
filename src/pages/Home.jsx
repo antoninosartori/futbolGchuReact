@@ -64,7 +64,7 @@ const Home = ( ) => {
     const [ galeria, setGaleria ] = useState([])
 
     useEffect(() => {
-        const URL = '/galeria'
+        const URL = './galeria'
         const endpoint = '.json'
         getData(URL, endpoint).then(setGaleria)
     }, [])
