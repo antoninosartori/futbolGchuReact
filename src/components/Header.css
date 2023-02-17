@@ -107,3 +107,11 @@ header nav .nav-right{
         transition: var(--transitionTime);
     }
 }
+
+@media (max-width: 400px) {
+    header nav .nav-right{
+        align-items: center;
+        padding-right: 0px;
+    }
+
+}

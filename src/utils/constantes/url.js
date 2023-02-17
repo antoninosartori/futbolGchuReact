@@ -1,0 +1,1 @@
+export const URL_API = 'https://api.steinhq.com/v1/storages/63ece6e7eced9b09e9beec58';

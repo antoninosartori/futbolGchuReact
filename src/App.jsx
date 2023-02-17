@@ -12,27 +12,18 @@ import Header from './components/Header'
 // funciones
 import { match } from './utils/functions/match'
 import { getData } from './utils/functions/getData'
+import NotFound from './pages/NotFound'
+import { URL_API } from './utils/constantes/url'
 
 function App() {
   const [allPartidos, setAllPartidos] = useState([])
 
   useEffect(() => {
+    const URL = URL_API;
     const endpoint = '/partidos';
-    getData(endpoint).then(setAllPartidos)
+    getData(URL, endpoint).then(setAllPartidos)
   }, [] )
 
-/*   allPartidos && allPartidos?.map(partido => {
-    match(
-      parseInt(partido.jornada),
-      partido.division,
-      partido.categoria,
-      partido.dia,
-      partido.hora,
-      partido.equipoLocal,
-      parseInt(partido.golLocal),
-      partido.equipoVisitante,
-      parseInt(partido.golVisitante))
-  }) */
   allPartidos && allPartidos?.map(partido => {
     match(
       partido.jornada,
@@ -56,6 +47,7 @@ function App() {
         < Route path='/posiciones' element={   < Posiciones /> } />
         < Route path='/calendario' element={   < Calendario /> } />
         < Route path='/contacto' element={   < Contacto /> } />
+        < Route path='*' element={   < NotFound /> } />
 
       </Routes>
 

@@ -12,6 +12,7 @@ import Modal from '../components/Modal';
 import { EQUIPOS } from '../utils/constantes/equipos';
 import { PARTIDOS } from '../utils/constantes/partidos';
 import { getData } from '../utils/functions/getData';
+import { URL_API } from '../utils/constantes/url';
 const THEAD = [
     {name: 'pos'},
     {name: 'equipo'},
@@ -42,6 +43,12 @@ const Home = ( ) => {
     // noticias
     const [ noticias, setNoticias ] = useState([]);
 
+    useEffect(() => {
+        const URL = URL_API;
+        const endpoint = '/noticias';
+        getData(URL, endpoint).then(setNoticias);
+    }, [] )
+
     // mini tabla de posiciones
     const [ posiciones, setPosiciones ] = useState(EQUIPOS);
     const [ posicionesPreviewA, setPosicionesPreviewA ] = useState(posiciones.filter(equipos => equipos.division === 'a' && equipos.categoria === 'primera')
@@ -49,31 +56,36 @@ const Home = ( ) => {
     const [ posicionesPreviewB, setPosicionesPreviewB ] = useState(posiciones.filter(equipos => equipos.division === 'b' && equipos.categoria === 'primera')
         .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif)).slice(0,3));
 
+    
+
     /* galeria */
     const [ openModal, setOpenModal ] = useState(false);
     const [ image, setImage ] = useState();
+    const [ galeria, setGaleria ] = useState([])
+
+    useEffect(() => {
+        const URL = '/galeria'
+        const endpoint = '.json'
+        getData(URL, endpoint).then(setGaleria)
+    }, [])
 
     const handleModal = (e) => {
         setOpenModal(!openModal)
         const src = e.target.attributes.src?.value
         if(!src) { return } else {setImage(src)}
-        
     }
-
-    useEffect(() => {
-        const endpoint = '/noticias';
-        getData(endpoint).then(setNoticias);
-    }, [] )
 
     return(
         <main className='home'>
             {/* Publicidad  */}
             < ImagenPublicitaria 
-                imgSrc='https://drive.google.com/uc?export=view&id=19v-ANas16mSa8DlGOzklBgv04fpUnqKS&rl'
+                imgSrc='https://drive.google.com/uc?export=view&id=1WkILwU3WfsrlJpRY47p8zJWGzfgQPi-i&rl'
                 alto='270px'
                 ancho='100%'
                 to='/contacto'
                 >
+                    <h3 style={{color: '#fff', fontSize: '30px'}}>Publicita Aqui</h3>
+                    <p style={{color: '#fff', fontSize: '30px'}}>Lleva tu negocio al siguiente nivel en FG</p>
             </ImagenPublicitaria >
             
             {/* carrusel */}
@@ -97,7 +109,7 @@ const Home = ( ) => {
                                             <span> {partido.local.nombre_equipo_short} </span>
                                         </div>
                                         <div className='carrusel-groupItem carrusel-gol-dia'>
-                                            <span> {!partido.golLocal && !partido.golVisitante ? partido.dia : partido.golLocal} </span>
+                                            <span> {partido.golLocal || partido.golLocal === 0 ? partido.golLocal : partido.dia} </span>
                                         </div>
                                     </div>
                                     <div className='carrusel-fila'>
@@ -108,7 +120,7 @@ const Home = ( ) => {
                                             <span> {partido.visitante.nombre_equipo_short} </span>
                                         </div>
                                         <div className='carrusel-groupItem carrusel-gol-dia'>
-                                            <span> {!partido.golVisitante && !partido.golVisitante ? partido.hora : partido.golVisitante} </span>
+                                        <span> {partido.golVisitante || partido.golVisitante === 0 ? partido.golVisitante : partido.hora} </span>
                                         </div>
                                     </div>
                                 </article>
@@ -217,10 +229,12 @@ const Home = ( ) => {
             <section className='galeria-container'>
                 <Title>galeria</Title>
                 <div className='galeria-gridContainer'>
-                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img4.png" alt="" />
-                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img1.png" alt="" />
-                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img3.png" alt="" />
-                    <img onClick={handleModal} src="https://antoninosartori.github.io/coder-project/img/galeria/img4.png" alt="" />
+                    { galeria.map(foto => {
+                        return(
+                            <img src={foto.src} alt={foto.alt} onClick={handleModal} />
+                        )
+                    }) }
+                    
                 </div>
                 { openModal && < Modal handleModal={handleModal} image={image} /> }
             </section>

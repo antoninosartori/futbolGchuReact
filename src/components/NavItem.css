@@ -25,3 +25,8 @@
         font-size: 50px;
     }
 }
+@media (max-width: 400px) {
+    .navItem{
+        font-size: 40px;
+    }
+}
