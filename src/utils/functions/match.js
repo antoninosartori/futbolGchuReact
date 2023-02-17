@@ -3,7 +3,7 @@ import { PARTIDOS } from "../constantes/partidos";
 import { sumaPunto } from "./sumaPunto";
 
 export function match(jornada, division, categoria ,dia, hora, equipoLocal, golLocal, equipoVisitante, golVisitante, goleadoresLocales, goleadoresVisitantes){
-
+    
     /* if(jornada === 'cuartos' || 'semi' || 'final' && division === 'copa gchu') {
         let local = EQUIPOS.find(e => e.nombre_equipo === equipoLocal);
         let visitante = EQUIPOS.find(e => e.nombre_equipo === equipoVisitante);
