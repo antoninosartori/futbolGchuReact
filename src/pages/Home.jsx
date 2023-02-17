@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react'
 import './Home.css'
 import 'react-multi-carousel/lib/styles.css';
 // componentes
+import Carousel from 'react-multi-carousel';
 import Title from '../components/Title'
 import ImagenPublicitaria from '../components/ImagenPublicitaria.jsx';
-import Carousel from 'react-multi-carousel';
 import GenericButton from '../components/GenericButton';
 import Modal from '../components/Modal';
 // constantes
@@ -43,11 +43,11 @@ const Home = ( ) => {
     // noticias
     const [ noticias, setNoticias ] = useState([]);
 
-    useEffect(() => {
+/*     useEffect(() => {
         const URL = URL_API;
         const endpoint = '/noticias';
         getData(URL, endpoint).then(setNoticias);
-    }, [] )
+    }, [] ) */
 
     // mini tabla de posiciones
     const [ posiciones, setPosiciones ] = useState(EQUIPOS);
@@ -131,7 +131,7 @@ const Home = ( ) => {
                 <GenericButton to='/calendario'>mas partidos</GenericButton>
             </section>
 
-            {/* seccion de noticias  -- 4 noticias en forma de cuadrado  */}
+            {/* seccion de noticias  -- noticias en forma de cuadrado  */}
             <section className='noticias-container'>
                 <Title>noticias</Title>
                 <div className='noticias-flexContainer'>
@@ -237,7 +237,6 @@ const Home = ( ) => {
                 </div>
                 { openModal && < Modal handleModal={handleModal} image={image} /> }
             </section>
-                
             
         </main>
         
