@@ -4,6 +4,9 @@ import sportsSoccer from '../assets/sports_soccer.svg'
 import instagram from '../assets/instagram.svg'
 import mail from '../assets/mail.svg'
 import logoKumpel from '../assets/logoKumpel.svg'
+// componentes
+import { Link } from 'react-router-dom'
+
 const Footer = () => {
     return(
         <footer>
@@ -17,14 +20,14 @@ const Footer = () => {
                 </div>
                 <div className='footer-redes'>
                     <a href="https://www.kumpel.com.ar" target='_blank'>
-                        <img  src={logoKumpel} alt="Instagram de Kumpel" />
+                        <img  src={logoKumpel} alt="Logo de Kumpel" />
                     </a>
                     <a href="https://www.instagram.com/kumpel/" target='_blank'>
                         <img  src={instagram} alt="Instagram de Kumpel" />
                     </a>
-                    <a href="">
+                    <Link to="/contacto">
                         <img src={mail} alt="Mail de Kumpel" />
-                    </a>
+                    </Link>
                 </div>
             </nav>
         </footer>

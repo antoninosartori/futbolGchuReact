@@ -3,6 +3,7 @@ import './Posiciones.css'
 // componentes
 import Title from '../components/Title'
 import ImagenPublicitaria from '../components/ImagenPublicitaria';
+import GenericButton from '../components/GenericButton';
 // constantes
 import { EQUIPOS } from '../utils/constantes/equipos'
 const THEAD = [
@@ -100,7 +101,7 @@ const Posiciones = () => {
                                         <tr key={item.id}>
                                             <td>{idx + 1}</td>
                                             <td className='td-nombreEquipo'>
-                                                <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt="" /></span>
+                                                <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
                                                 <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                             </td>
@@ -117,6 +118,9 @@ const Posiciones = () => {
                                 })}
                     </tbody>
                 </table>
+                <div className='genericButton-container'>
+                    <GenericButton to='/calendario'>ver partidos</GenericButton>
+                </div>
             </section>
 
         </main>

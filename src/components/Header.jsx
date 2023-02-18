@@ -42,7 +42,7 @@ const Header = () => {
                 <div className="nav-left">
                     <div className='nav-logo'>
                         <Link to='/' className='nav-logo-link'>
-                            <img src={sportsSoccer} alt="" />
+                            <img src={sportsSoccer} alt="logo de Futbol Gualeguaychu" />
                             <span>f</span>
                             <span>g</span>
                         </Link>

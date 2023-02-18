@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 // componentes
 import ImagenPublicitaria from '../components/ImagenPublicitaria'
+import GenericButton from '../components/GenericButton'
 import Title from '../components/Title'
 import { PARTIDOS } from '../utils/constantes/partidos'
 // constantes
@@ -108,10 +109,12 @@ const Calendario = () => {
                                                 <span className='td-nombreEquipoCorto'> {item.visitante.nombre_equipo_short} </span>
                                                 <span className='td-escudoEquipo' ><img src={item.visitante.escudo_equipo} alt={`escudo del equipo de futbol ${item.visitante.nombre_equipo}`} /></span>
                                             </td>
-                                            <div className='goleadores-container'>
-                                                <div className='goleadores-locales'> {item.goleadoresLocales && item.goleadoresLocales.split(',').map(gol => <span> {gol} </span> )} </div>
-                                                <div className='goleadores-visitantes'> {item.goleadoresVisitantes && item.goleadoresVisitantes.split(',').map(gol => <span> {gol} </span> )} </div>
-                                            </div>
+                                            { !item.golLocal && !item.golVisitante ? null :
+                                                <div className='goleadores-container'>
+                                                    <div className='goleadores-locales'> {item.goleadoresLocales && item.goleadoresLocales.split(',').map(gol => <span> {gol} </span> )} </div>
+                                                    <div className='goleadores-visitantes'> {item.goleadoresVisitantes && item.goleadoresVisitantes.split(',').map(gol => <span> {gol} </span> )} </div>
+                                                </div> 
+                                            }
                                         </tr>
                                         
                                         {/* <tr key={item.id}>
@@ -138,6 +141,10 @@ const Calendario = () => {
                     </tbody>
                 </table>
 
+                <div className='genericButton-container'>
+                    <GenericButton to='/posiciones'>ver posiciones</GenericButton>
+                </div>
+                
             </section>
         </main>
     )

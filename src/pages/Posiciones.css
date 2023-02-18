@@ -93,6 +93,12 @@
     border-bottom-left-radius: 5px;
 }
 
+.tabla-container .genericButton-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* calendario */
 .calendario-container table tbody tr{
     position: relative;

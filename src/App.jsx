@@ -18,11 +18,11 @@ import { URL_API } from './utils/constantes/url'
 function App() {
   const [allPartidos, setAllPartidos] = useState([])
 
-/*   useEffect(() => {
+  useEffect(() => {
     const URL = URL_API;
     const endpoint = '/partidos';
     getData(URL, endpoint).then(setAllPartidos)
-  }, [] ) */
+  }, [] )
 
   allPartidos && allPartidos?.map(partido => 
     {

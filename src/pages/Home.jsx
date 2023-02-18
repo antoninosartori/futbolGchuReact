@@ -43,11 +43,11 @@ const Home = ( ) => {
     // noticias
     const [ noticias, setNoticias ] = useState([]);
 
-/*     useEffect(() => {
+    useEffect(() => {
         const URL = URL_API;
         const endpoint = '/noticias';
         getData(URL, endpoint).then(setNoticias);
-    }, [] ) */
+    }, [] )
 
     // mini tabla de posiciones
     const [ posiciones, setPosiciones ] = useState(EQUIPOS);
@@ -84,8 +84,10 @@ const Home = ( ) => {
                 ancho='100%'
                 to='/contacto'
                 >
-                    <h3 style={{color: '#fff', fontSize: '30px'}}>Publicita Aqui</h3>
-                    <p style={{color: '#fff', fontSize: '30px'}}>Lleva tu negocio al siguiente nivel en FG</p>
+                    <div style={{display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff73', padding: '10px', borderRadius: '10px'}}>
+                        <h3 style={{color: '#1c2039', fontSize: '30px'}}>Publicita Aqui</h3>
+                        <p style={{color: '#1c2039', fontSize: '30px'}}>Lleva tu negocio al siguiente nivel en FG</p>
+                    </div>
             </ImagenPublicitaria >
             
             {/* carrusel */}
@@ -173,7 +175,7 @@ const Home = ( ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt="" /></span>
+                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -199,7 +201,7 @@ const Home = ( ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt="" /></span>
+                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -235,6 +237,15 @@ const Home = ( ) => {
                         )
                     }) }
                 </div>
+
+                <div className='galeria-parrafoContainer'>
+                    <div className='galeria-parrafos--flex'>
+                        <p>¿Sos fotografo/a?</p>
+                        <p>¡Podemos publicar tus fotos dandote credito!</p>
+                    </div>
+                    <GenericButton to='/contacto'>¡hablemos!</GenericButton>
+                </div>
+
                 { openModal && < Modal handleModal={handleModal} image={image} /> }
             </section>
             
