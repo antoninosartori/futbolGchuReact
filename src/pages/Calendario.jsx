@@ -21,6 +21,10 @@ const selectCopa = [
     {value: 'grupo f', text: 'grupo f'}
 ]
 
+// assets
+import diaPartido from '../assets/diaPartido.svg'
+import horaPartido from '../assets/horaPartido.svg'
+
 const Calendario = () => {
 
     const [allPartidos, setAllPartidos] = useState(PARTIDOS)
@@ -102,12 +106,26 @@ const Calendario = () => {
                                                 <span className='td-nombreEquipoLargo'> {item.local.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.local.nombre_equipo_short} </span>
                                             </td>
-                                            <td> { item.golLocal || item.golLocal === 0 ? item.golLocal : item.dia } </td>
-                                            <td> { item.golVisitante || item.golVisitante === 0 ? item.golVisitante : item.hora } </td>
+                                            <td> { item.golLocal || item.golLocal === 0 ? item.golLocal : 
+                                                <div className='td-diaPartido'> 
+                                                    <img src={diaPartido} alt="fecha del partido de futbol" />
+                                                    <span>{item.dia}</span> 
+                                                </div> 
+                                                } 
+                                            </td>
+                                            <td> { item.golVisitante || item.golVisitante === 0 ? item.golVisitante : 
+                                                <div className='td-horaPartido'> 
+                                                    <img src={horaPartido} alt="hora del partido de futbol" /> 
+                                                    <span>{item.hora}</span> 
+                                                </div>  
+                                                } 
+                                            </td>
                                             <td className='td-nombreEquipo'>
                                                 <span className='td-nombreEquipoLargo'> {item.visitante.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.visitante.nombre_equipo_short} </span>
-                                                <span className='td-escudoEquipo' ><img src={item.visitante.escudo_equipo} alt={`escudo del equipo de futbol ${item.visitante.nombre_equipo}`} /></span>
+                                                <span className='td-escudoEquipo' >
+                                                    <img src={item.visitante.escudo_equipo} alt={`escudo del equipo de futbol ${item.visitante.nombre_equipo}`} />
+                                                </span>
                                             </td>
                                             { !item.golLocal && !item.golVisitante ? null :
                                                 <div className='goleadores-container'>

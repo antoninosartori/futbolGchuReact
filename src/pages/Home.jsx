@@ -38,6 +38,9 @@ const responsive = {
       items: 1
     }
 };
+// assets
+import diaPartido from '../assets/diaPartido.svg'
+import horaPartido from '../assets/horaPartido.svg'
 
 const Home = ( ) => {
     // noticias
@@ -110,8 +113,14 @@ const Home = ( ) => {
                                         <div className='carrusel-groupItem carrusel-equipo'>
                                             <span> {partido.local.nombre_equipo_short} </span>
                                         </div>
-                                        <div className='carrusel-groupItem carrusel-gol-dia'>
-                                            <span> {partido.golLocal || partido.golLocal === 0 ? partido.golLocal : partido.dia} </span>
+                                        <div className={partido.golLocal || partido.golLocal === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
+                                            { partido.golLocal || partido.golLocal === 0 ? <span> {partido.golLocal} </span> :
+                                                <div className='carrusel-diaPartido'>
+                                                    <img src={diaPartido} alt="dia del partido" />
+                                                    <span> {partido.dia} </span>
+                                                </div> 
+                                            }
+                                            {/* <span> {partido.golLocal || partido.golLocal === 0 ? partido.golLocal : partido.dia} </span> */}
                                         </div>
                                     </div>
                                     <div className='carrusel-fila'>
@@ -121,8 +130,14 @@ const Home = ( ) => {
                                         <div className='carrusel-groupItem carrusel-equipo'>
                                             <span> {partido.visitante.nombre_equipo_short} </span>
                                         </div>
-                                        <div className='carrusel-groupItem carrusel-gol-dia'>
-                                        <span> {partido.golVisitante || partido.golVisitante === 0 ? partido.golVisitante : partido.hora} </span>
+                                        <div className={partido.golVisitante || partido.golVisitante === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
+                                            { partido.golVisitante || partido.golVisitante === 0 ? <span> {partido.golVisitante} </span> :
+                                                <div className='carrusel-horaPartido'>
+                                                    <img src={horaPartido} alt="hora del partido" />
+                                                    <span> {partido.hora} </span>
+                                                </div> 
+                                            }
+                                        {/* <span> {partido.golVisitante || partido.golVisitante === 0 ? partido.golVisitante : partido.hora} </span> */}
                                         </div>
                                     </div>
                                 </article>

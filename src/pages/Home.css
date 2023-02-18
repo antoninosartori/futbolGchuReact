@@ -77,6 +77,23 @@
     width: 30%;
 }
 
+.carrusel-horaFecha--flexStart{
+    width: 35%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.carrusel-diaPartido, .carrusel-horaPartido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+}
+
+.carrusel-diaPartido img, .carrusel-horaPartido img{
+    width: 14px;
+}
+
 .react-multiple-carousel__arrow{
     background-color: var(--color1) !important;
 }

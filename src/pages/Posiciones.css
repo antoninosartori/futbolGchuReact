@@ -113,8 +113,22 @@
 .calendario-container table thead tr th:nth-child(1), .calendario-container table thead tr th:nth-child(3){
     width: 40%;
 }
+
+.calendario-container .td-diaPartido, .calendario-container .td-horaPartido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    font-size: 16px;
+}
+
+.calendario-container .td-diaPartido img,
+.calendario-container .td-horaPartido img{
+    width: 14px;
+}
+
 /* primera opcion de goleadores */
-.calendario-container table tbody .goleadores-visitantes-container, .calendario-container table tbody .goleadores-locales-container{
+/* .calendario-container table tbody .goleadores-visitantes-container, .calendario-container table tbody .goleadores-locales-container{
     position: absolute;
     top: 0%;
     display: flex;
@@ -165,7 +179,7 @@
 .calendario-container table tbody .goleadores-locales-container span::before{
     content: '⚽';
     font-size: 20px;
-}
+} */
 
 /* segunda opcion de goleadores */
 .calendario-container  .goleadores-container{
@@ -284,6 +298,12 @@ tr:hover{
         display: none;
     }
     .th-goles{
+        display: none;
+    }
+
+    /* calendario */
+    .calendario-container .td-diaPartido img,
+    .calendario-container .td-horaPartido img{
         display: none;
     }
 }
