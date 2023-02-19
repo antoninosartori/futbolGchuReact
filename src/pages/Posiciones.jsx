@@ -50,13 +50,15 @@ const Posiciones = () => {
         const isCopaGchu = division === 'copa gchu' ? selectCopa : selectDivision;
         setSelectsOptions(isCopaGchu)
 
-        if( division === 'a' || 'b' && categoria.startsWith('grupo') ){
+        if( division === 'a' && categoria.startsWith('grupo') ){
+            setCategoria('primera')
+        }
+        if( division === 'b' && categoria.startsWith('grupo') ){
             setCategoria('primera')
         }
         if( division === 'copa gchu' && !categoria.startsWith('grupo') ){
             setCategoria('grupo a')
         }
-
     }, [division])
 
     const changeSelectDivision = (event) => {

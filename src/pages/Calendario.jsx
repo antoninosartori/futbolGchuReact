@@ -40,7 +40,18 @@ const Calendario = () => {
     }, [division, categoria, jornada] )
 
     useEffect(() => {
-        setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
+        const isCopaGchu = division === 'copa gchu' ? selectCopa : selectDivision;
+        setSelectsOptions(isCopaGchu)
+
+        if( division === 'a' && categoria.startsWith('grupo') ){
+            setCategoria('primera')
+        }
+        if( division === 'b' && categoria.startsWith('grupo') ){
+            setCategoria('primera')
+        }
+        if( division === 'copa gchu' && !categoria.startsWith('grupo') ){
+            setCategoria('grupo a')
+        }
     }, [division])
 
     const changeSelectDivision = (event) => {
@@ -76,11 +87,7 @@ const Calendario = () => {
                         <option value="copa gchu">copa gchu</option>
                     </select>
                     <select value={categoria} name="categoria" onChange={changeSelectCategoria}>
-                        {selectsOptions.map(item => {
-                            return(
-                                <option key={item.value} value={item.value} > {item.text} </option>
-                                )
-                        } ) }
+                        { selectsOptions.map(item => <option key={item.value} value={item.value} > {item.text} </option>) }
                     </select>
                     <select value={jornada} name="jornada" onChange={changeSelectJornada}>
                         <option value='1'>fecha 1</option>
@@ -97,7 +104,6 @@ const Calendario = () => {
                     </thead>
                     <tbody>
                         {partidosFiltrados?.map((item, idx) => {
-                             {console.log(item)}
                                     return(
                                         <>
                                         <tr key={item.id}>
