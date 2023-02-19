@@ -1,19 +1,21 @@
+import React from 'react'
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 // paginas
-import Calendario from './pages/Calendario'
-import Contacto from './pages/Contacto'
-import Home from './pages/Home'
-import Posiciones from './pages/Posiciones'
+const LazyCalendario = React.lazy( () => import('./pages/Calendario')  )
+const LazyContacto = React.lazy( () => import('./pages/Contacto')  )
+const LazyHome = React.lazy( () => import('./pages/Home')  )
+const LazyPosiciones = React.lazy( () => import('./pages/Posiciones')  )
+const LazyNotFound = React.lazy( () => import('./pages/NotFound')  )
 // componentes
 import Footer from './components/Footer'
 import Header from './components/Header'
 // funciones
 import { match } from './utils/functions/match'
 import { getData } from './utils/functions/getData'
-import NotFound from './pages/NotFound'
 import { URL_API } from './utils/constantes/url'
+import Loading from './components/Loading'
 
 function App() {
   const [allPartidos, setAllPartidos] = useState([])
@@ -47,12 +49,46 @@ function App() {
 
       <Routes>
 
-        < Route path='/' element={   < Home /> } />
-        < Route path='/posiciones' element={   < Posiciones /> } />
-        < Route path='/calendario' element={   < Calendario /> } />
-        < Route path='/contacto' element={   < Contacto /> } />
-        < Route path='*' element={   < NotFound /> } />
-
+        < Route 
+          path='/' 
+          element={ 
+            <React.Suspense fallback={ < Loading /> }>
+              < LazyHome />  
+            </React.Suspense>
+            }
+        />
+        < Route 
+          path='/posiciones' 
+          element={ 
+            <React.Suspense fallback={ < Loading /> }>
+              < LazyPosiciones />  
+            </React.Suspense>
+            }
+        />
+        < Route 
+          path='/calendario' 
+          element={ 
+            <React.Suspense fallback={ < Loading /> }>
+              < LazyCalendario />  
+            </React.Suspense>
+            }
+        />
+        < Route 
+          path='/contacto' 
+          element={ 
+            <React.Suspense fallback={ < Loading /> }>
+              < LazyContacto />  
+            </React.Suspense>
+            }
+        />
+        < Route 
+          path='*' 
+          element={ 
+            <React.Suspense fallback={ < Loading /> }>
+              < LazyNotFound />  
+            </React.Suspense>
+            }
+        />
       </Routes>
 
       < Footer />

@@ -59,7 +59,7 @@ const Home = ( ) => {
     const [ posicionesPreviewB, setPosicionesPreviewB ] = useState(posiciones.filter(equipos => equipos.division === 'b' && equipos.categoria === 'primera')
         .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif)).slice(0,3));
 
-    /* galeria */
+    // galeria
     const [ openModal, setOpenModal ] = useState(false);
     const [ image, setImage ] = useState();
     const [ galeria, setGaleria ] = useState([])
@@ -106,7 +106,7 @@ const Home = ( ) => {
                                     </div>
                                     <div className='carrusel-fila'>
                                         <div className='carrusel-groupItem carrusel-escudo'>
-                                            <img src={partido.local.escudo_equipo} alt={partido.local.nombre_equipo} />
+                                            <img src={partido.local.escudo_equipo} alt={partido.local.nombre_equipo} loading='lazy' />
                                         </div>
                                         <div className='carrusel-groupItem carrusel-equipo'>
                                             <span> {partido.local.nombre_equipo_short} </span>
@@ -114,7 +114,7 @@ const Home = ( ) => {
                                         <div className={partido.golLocal || partido.golLocal === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
                                             { partido.golLocal || partido.golLocal === 0 ? <span> {partido.golLocal} </span> :
                                                 <div className='carrusel-diaPartido'>
-                                                    <img src={diaPartido} alt="dia del partido" />
+                                                    <img src={diaPartido} alt="dia del partido" loading='lazy' />
                                                     <span> {partido.dia} </span>
                                                 </div> 
                                             }
@@ -123,7 +123,7 @@ const Home = ( ) => {
                                     </div>
                                     <div className='carrusel-fila'>
                                         <div className='carrusel-groupItem carrusel-escudo'>
-                                            <img src={partido.visitante.escudo_equipo} alt={partido.visitante.nombre_equipo} />
+                                            <img src={partido.visitante.escudo_equipo} alt={partido.visitante.nombre_equipo} loading='lazy' />
                                         </div>
                                         <div className='carrusel-groupItem carrusel-equipo'>
                                             <span> {partido.visitante.nombre_equipo_short} </span>
@@ -131,7 +131,7 @@ const Home = ( ) => {
                                         <div className={partido.golVisitante || partido.golVisitante === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
                                             { partido.golVisitante || partido.golVisitante === 0 ? <span> {partido.golVisitante} </span> :
                                                 <div className='carrusel-horaPartido'>
-                                                    <img src={horaPartido} alt="hora del partido" />
+                                                    <img src={horaPartido} alt="hora del partido" loading='lazy' />
                                                     <span> {partido.hora} </span>
                                                 </div> 
                                             }
@@ -163,7 +163,7 @@ const Home = ( ) => {
                                     <figure className='noticia-etiquetaContainer'>
                                         <span className='noticia-etiquetaNombre'> {noticia.etiqueta} </span>
                                     </figure>
-                                    <img className='noticia-imagen' src={noticia.imagen_noticia_url} alt={`Noticia de la liga de futbol gualeguaychu sobre ${noticia.etiqueta}`} />
+                                    <img className='noticia-imagen' src={noticia.imagen_noticia_url} alt={`Noticia de la liga de futbol gualeguaychu sobre ${noticia.etiqueta}`} loading='lazy' />
                                 </div>
                             </article>
                         )
@@ -188,7 +188,7 @@ const Home = ( ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
+                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`}  /></span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -245,7 +245,7 @@ const Home = ( ) => {
                 <div className='galeria-gridContainer'>
                     { galeria.map(foto => {
                         return(
-                            <img src={foto.src} alt={foto.alt} onClick={handleModal} />
+                            <img src={foto.src} alt={foto.alt} loading='lazy' onClick={handleModal} />
                         )
                     }) }
                 </div>
