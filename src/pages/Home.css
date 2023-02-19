@@ -95,11 +95,12 @@
 }
 
 .react-multiple-carousel__arrow{
-    background-color: var(--color1) !important;
+    opacity: .7 !important;
+    background-color: var(--color3) !important;
 }
 
 .react-multiple-carousel__arrow:hover{
-    opacity: .8 !important;
+    opacity: 1 !important;
 }
 
 .carrusel-container .genericButton-enlace{

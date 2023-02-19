@@ -59,8 +59,6 @@ const Home = ( ) => {
     const [ posicionesPreviewB, setPosicionesPreviewB ] = useState(posiciones.filter(equipos => equipos.division === 'b' && equipos.categoria === 'primera')
         .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif)).slice(0,3));
 
-    
-
     /* galeria */
     const [ openModal, setOpenModal ] = useState(false);
     const [ image, setImage ] = useState();
@@ -86,10 +84,10 @@ const Home = ( ) => {
                 alto='270px'
                 ancho='100%'
                 to='/contacto'
-                >
-                    <div style={{display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff73', padding: '10px', borderRadius: '10px'}}>
-                        <h3 style={{color: '#1c2039', fontSize: '30px'}}>Publicita Aqui</h3>
-                        <p style={{color: '#1c2039', fontSize: '30px'}}>Lleva tu negocio al siguiente nivel en FG</p>
+                > 
+                    <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems:'center',justifyContent:'center', backgroundColor: '#0000003f', padding: '10px', borderRadius: '10px'}}>
+                        <h3 style={{color: '#fff', fontSize: '30px'}}>Publicita Aqui</h3>
+                        <p style={{color: '#fff', fontSize: '30px'}}>Lleva tu negocio al siguiente nivel en FG</p>
                     </div>
             </ImagenPublicitaria >
             
@@ -240,7 +238,6 @@ const Home = ( ) => {
                 link='https://kumpel.com.ar/'
                 >
             </ImagenPublicitaria>
-
 
             {/* galeria */}
             <section className='galeria-container'>

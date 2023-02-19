@@ -32,7 +32,7 @@ const selectCopa = [
 const Posiciones = () => {
     const [posiciones, setPosiciones] = useState(EQUIPOS) // estado inicial antes de filtrarse
     const [posicionesFiltradas, setPosicionesFiltradas] = 
-        useState(posiciones.filter(equipos => equipos.division === 'a' && equipos.categoria === 'primera')
+        useState(posiciones.filter(equipos => equipos.division === 'copa gchu' && equipos.categoria === 'grupo a')
             .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif))) // estado por el cual se va a filtrar y mostrar las posiciones
     const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
     const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
@@ -47,7 +47,16 @@ const Posiciones = () => {
     },[division, categoria])
 
     useEffect(() => {
-        setSelectsOptions(division === 'copa gchu' ? selectCopa : selectDivision)
+        const isCopaGchu = division === 'copa gchu' ? selectCopa : selectDivision;
+        setSelectsOptions(isCopaGchu)
+
+        if( division === 'a' || 'b' && categoria.startsWith('grupo') ){
+            setCategoria('primera')
+        }
+        if( division === 'copa gchu' && !categoria.startsWith('grupo') ){
+            setCategoria('grupo a')
+        }
+
     }, [division])
 
     const changeSelectDivision = (event) => {
@@ -74,18 +83,14 @@ const Posiciones = () => {
 
                 <Title>Posiciones</Title>
 
-                <form action="">
+                <form >
                     <select value={division} name="division" id="division"  onChange={changeSelectDivision}>
                         <option  value="a">division a</option>
                         <option  value="b">division b</option>
                         <option  value="copa gchu">copa gchu</option>
                     </select>
                     <select value={categoria} name="categoria" id="categoria" onChange={changeSelectCategoria}>
-                        {selectsOptions.map(item => {
-                            return(
-                                <option key={item.value} value={item.value} > {item.text} </option>
-                                )
-                        } ) }
+                        { selectsOptions.map(item => <option key={item.value} value={item.value} > {item.text} </option>) }
                     </select>
                 </form>
 
