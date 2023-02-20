@@ -151,31 +151,6 @@ const Home = (  ) => {
                 <GenericButton to='/calendario'>mas partidos</GenericButton>
             </section>
 
-            {/* seccion de noticias  -- noticias en forma de cuadrado  */}
-            <section className='noticias-container'>
-                <Title>noticias</Title>
-                <div className='noticias-flexContainer'>
-                    {noticias.map(noticia => {
-                        return (
-                            <article key={noticia.id} className='noticia-articulo'>
-                                <div className="noticia-itemGroup">
-                                    <h2 className='noticia-titulo'> {noticia.titulo_noticia} </h2>
-                                </div>
-                                <div className='noticia-itemGroup'>
-                                    <p className='noticia-cuerpo'> {noticia.cuerpo_noticia} </p>
-                                </div>
-                                <div className='noticia-itemGroup noticia-itemGroup--img'>
-                                    <figure className='noticia-etiquetaContainer'>
-                                        <span className='noticia-etiquetaNombre'> {noticia.etiqueta} </span>
-                                    </figure>
-                                    <img className='noticia-imagen' src={noticia.imagen_noticia_url} alt={`Noticia de la liga de futbol gualeguaychu sobre ${noticia.etiqueta}`} loading='lazy' />
-                                </div>
-                            </article>
-                        )
-                    })}
-                </div>
-            </section>
-
             {/* mini tabla de posiciones */}
             <section className='tabla-container posicionesPreview-container'>
                 
@@ -233,6 +208,31 @@ const Home = (  ) => {
                 </div>
 
                 <GenericButton to={'/posiciones'} > mas posiciones </GenericButton>
+            </section>
+
+            {/* seccion de noticias  -- noticias en forma de cuadrado  */}
+            <section className='noticias-container'>
+                <Title>noticias</Title>
+                <div className='noticias-flexContainer'>
+                    {noticias.map(noticia => {
+                        return (
+                            <article key={noticia.id} className='noticia-articulo'>
+                                <div className="noticia-itemGroup">
+                                    <h2 className='noticia-titulo'> {noticia.titulo_noticia} </h2>
+                                </div>
+                                <div className='noticia-itemGroup'>
+                                    <p className='noticia-cuerpo'> {noticia.cuerpo_noticia} </p>
+                                </div>
+                                <div className='noticia-itemGroup noticia-itemGroup--img'>
+                                    <figure className='noticia-etiquetaContainer'>
+                                        <span className='noticia-etiquetaNombre'> {noticia.etiqueta} </span>
+                                    </figure>
+                                    <img className='noticia-imagen' src={noticia.imagen_noticia_url} alt={`Noticia de la liga de futbol gualeguaychu sobre ${noticia.etiqueta}`} loading='lazy' />
+                                </div>
+                            </article>
+                        )
+                    })}
+                </div>
             </section>
 
             {/* publicidad */}

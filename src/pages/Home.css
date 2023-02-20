@@ -111,7 +111,7 @@
 /* noticias */
 .noticias-container{
     border-top: 5px solid var(--color1);
-    border-bottom: 5px solid var(--color1);
+    /* border-bottom: 5px solid var(--color1); */
 }
 
 .noticias-flexContainer{
@@ -176,7 +176,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* border-bottom: 5px solid var(--color1); */
+    /* border-top: 5px solid var(--color1); */
     padding: 50px 0;
 }
 
