@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // estilos
 import './Home.css'
+import './Posiciones.css'
 import 'react-multi-carousel/lib/styles.css';
 // componentes
 import Carousel from 'react-multi-carousel';
