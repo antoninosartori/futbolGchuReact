@@ -46,11 +46,11 @@ const Home = (  ) => {
     // noticias
     const [ noticias, setNoticias ] = useState([]);
 
-/*     useEffect(() => {
+    useEffect(() => {
         const URL = URL_API;
         const endpoint = '/noticias';
         getData(URL, endpoint).then(setNoticias);
-    }, [] ) */
+    }, [] )
 
     // mini tabla de posiciones
     const [ posiciones, setPosiciones ] = useState(EQUIPOS);
