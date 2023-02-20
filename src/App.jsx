@@ -18,13 +18,14 @@ import { URL_API } from './utils/constantes/url'
 import Loading from './components/Loading'
 
 function App() {
+  // partidos
   const [allPartidos, setAllPartidos] = useState([])
 
-  useEffect(() => {
+/*   useEffect(() => {
     const URL = URL_API;
     const endpoint = '/partidos';
     getData(URL, endpoint).then(setAllPartidos)
-  }, [] )
+  }, [] ) */
 
   allPartidos && allPartidos?.map(partido => 
     {
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <>
-      <Header/>
+      <Header  />
 
       <Routes>
 
@@ -53,7 +54,7 @@ function App() {
           path='/' 
           element={ 
             <React.Suspense fallback={ < Loading /> }>
-              < LazyHome />  
+              < LazyHome  />  
             </React.Suspense>
             }
         />
@@ -61,7 +62,7 @@ function App() {
           path='/posiciones' 
           element={ 
             <React.Suspense fallback={ < Loading /> }>
-              < LazyPosiciones />  
+              < LazyPosiciones  />  
             </React.Suspense>
             }
         />
@@ -69,7 +70,7 @@ function App() {
           path='/calendario' 
           element={ 
             <React.Suspense fallback={ < Loading /> }>
-              < LazyCalendario />  
+              < LazyCalendario  />  
             </React.Suspense>
             }
         />
@@ -77,7 +78,7 @@ function App() {
           path='/contacto' 
           element={ 
             <React.Suspense fallback={ < Loading /> }>
-              < LazyContacto />  
+              < LazyContacto  />  
             </React.Suspense>
             }
         />
@@ -85,7 +86,7 @@ function App() {
           path='*' 
           element={ 
             <React.Suspense fallback={ < Loading /> }>
-              < LazyNotFound />  
+              < LazyNotFound  />  
             </React.Suspense>
             }
         />

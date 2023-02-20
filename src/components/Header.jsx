@@ -27,7 +27,7 @@ const navItems =
         }
     ]
 
-const Header = () => {
+const Header = (  ) => {
     const [isToggle, setIsToggle] = useState(false)
 
     const toggleMenu = () => {
@@ -47,7 +47,7 @@ const Header = () => {
                             <span>g</span>
                         </Link>
                     </div>
-                    <div className="changeDarkMode"></div>
+                    <div className="changeDarkMode"  ></div>
                 </div>
                 <div className={classList}>
                     {

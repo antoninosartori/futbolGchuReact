@@ -42,15 +42,15 @@ const responsive = {
 import diaPartido from '../assets/diaPartido.svg'
 import horaPartido from '../assets/horaPartido.svg'
 
-const Home = ( ) => {
+const Home = (  ) => {
     // noticias
     const [ noticias, setNoticias ] = useState([]);
 
-    useEffect(() => {
+/*     useEffect(() => {
         const URL = URL_API;
         const endpoint = '/noticias';
         getData(URL, endpoint).then(setNoticias);
-    }, [] )
+    }, [] ) */
 
     // mini tabla de posiciones
     const [ posiciones, setPosiciones ] = useState(EQUIPOS);
@@ -63,6 +63,7 @@ const Home = ( ) => {
     const [ openModal, setOpenModal ] = useState(false);
     const [ image, setImage ] = useState();
     const [ galeria, setGaleria ] = useState([])
+    const [ indice, setIndice ] = useState()
 
     useEffect(() => {
         const URL = './galeria'
@@ -71,13 +72,17 @@ const Home = ( ) => {
     }, [])
 
     const handleModal = (e) => {
+       
         setOpenModal(!openModal)
         const src = e.target.attributes.src?.value
+        const indice = e.target.attributes.indice?.value
+        
+        if(!indice) {return} else {setIndice(indice)}
         if(!src) { return } else {setImage(src)}
     }
 
     return(
-        <main className='home'>
+        <main className='home'  >
             {/* Publicidad  */}
             < ImagenPublicitaria 
                 imgSrc='https://drive.google.com/uc?export=view&id=1WkILwU3WfsrlJpRY47p8zJWGzfgQPi-i&rl'
@@ -188,7 +193,7 @@ const Home = ( ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`}  /></span>
+                                            <span className='td-escudoEquipo'><img src={item?.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`}  /></span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -214,7 +219,7 @@ const Home = ( ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
+                                            <span className='td-escudoEquipo'><img src={item?.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -243,11 +248,7 @@ const Home = ( ) => {
             <section className='galeria-container'>
                 <Title>galeria</Title>
                 <div className='galeria-gridContainer'>
-                    { galeria.map(foto => {
-                        return(
-                            <img src={foto.src} alt={foto.alt} loading='lazy' onClick={handleModal} />
-                        )
-                    }) }
+                    { galeria.map( (foto, idx) => <img src={foto.src} alt={foto.alt} loading='lazy' onClick={handleModal} indice={idx} /> ) }
                 </div>
 
                 <div className='galeria-parrafoContainer'>
@@ -258,7 +259,7 @@ const Home = ( ) => {
                     <GenericButton to='/contacto'>¡hablemos!</GenericButton>
                 </div>
 
-                { openModal && < Modal handleModal={handleModal} image={image} /> }
+                { openModal && < Modal handleModal={handleModal} image={image} indice={indice} imagenes={galeria}  /> }
             </section>
             
         </main>

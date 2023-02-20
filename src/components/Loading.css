@@ -1,11 +1,12 @@
 .loading-container{
     position: absolute;
+    top: 0;
     width: 100vw;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color1);
+    background-color: var(--color3);
     color: var(--color2);
 }
 

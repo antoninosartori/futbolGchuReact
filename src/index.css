@@ -58,6 +58,13 @@ main {
   padding-top: var(--headerHeight);
 }
 
+#light main{
+  background-color: var(--color2);
+}
+#dark main{
+  background-color: var(--color1);
+}
+
 section {
   max-width: 992px;
   margin: 0 auto;
