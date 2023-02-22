@@ -112,7 +112,7 @@ const Posiciones = () => {
                                                 <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                             </td>
-                                            <td>{item.pts}</td>
+                                            <td >{item.pts}</td>
                                             <td>{item.pj}</td>
                                             <td>{item.pg}</td>
                                             <td>{item.pe}</td>

@@ -9,10 +9,11 @@ import Title from '../components/Title'
 import ImagenPublicitaria from '../components/ImagenPublicitaria.jsx';
 import GenericButton from '../components/GenericButton';
 import Modal from '../components/Modal';
+// funciones
+import { getData } from '../utils/functions/getData';
 // constantes
 import { EQUIPOS } from '../utils/constantes/equipos';
 import { PARTIDOS } from '../utils/constantes/partidos';
-import { getData } from '../utils/functions/getData';
 import { URL_API } from '../utils/constantes/url';
 const THEAD = [
     {name: 'pos'},
@@ -124,7 +125,6 @@ const Home = (  ) => {
                                                     <span> {partido.dia} </span>
                                                 </div> 
                                             }
-                                            {/* <span> {partido.golLocal || partido.golLocal === 0 ? partido.golLocal : partido.dia} </span> */}
                                         </div>
                                     </div>
                                     <div className='carrusel-fila'>
@@ -141,7 +141,6 @@ const Home = (  ) => {
                                                     <span> {partido.hora} </span>
                                                 </div> 
                                             }
-                                        {/* <span> {partido.golVisitante || partido.golVisitante === 0 ? partido.golVisitante : partido.hora} </span> */}
                                         </div>
                                     </div>
                                 </article>
@@ -169,7 +168,9 @@ const Home = (  ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item?.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`}  /></span>
+                                            <span className='td-escudoEquipo'>
+                                                <img src={item?.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`}  />
+                                            </span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -195,7 +196,9 @@ const Home = (  ) => {
                                     <tr key={item.id}>
                                         <td>{idx + 1}</td>
                                         <td className='td-nombreEquipo'>
-                                            <span className='td-escudoEquipo'><img src={item?.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} /></span>
+                                            <span className='td-escudoEquipo'>
+                                                <img src={item?.escudo_equipo} alt={`escudo del equipo ${item.nombre_equipo}`} />
+                                            </span>
                                             <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                             <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                         </td>
@@ -208,7 +211,7 @@ const Home = (  ) => {
                     </table>
                 </div>
 
-                <GenericButton to={'/posiciones'} > mas posiciones </GenericButton>
+                <GenericButton to={'/posiciones'} >mas posiciones</GenericButton>
             </section>
 
             {/* seccion de noticias  -- noticias en forma de cuadrado  */}
@@ -238,11 +241,12 @@ const Home = (  ) => {
 
             {/* publicidad */}
             <ImagenPublicitaria
-                imgSrc='https://drive.google.com/uc?export=view&id=1_V257QeLFxXfHGM2j9--zsPdFyYIw0zL&rl'
+                imgSrc='https://drive.google.com/uc?export=view&id=1d5mcsnMqZuwsHCCV7GLniplUGjoUjrqF&rl'
                 alto='80px'
                 ancho='100%'
                 link='https://kumpel.com.ar/'
                 >
+                    <p style={{color: '#fff', padding: '10px', backgroundColor:'#0000009c', borderRadius: '10px'}}>Da el paso a la <span style={{fontWeight: '700'}}>digitalizacion</span> de tu negocio</p>
             </ImagenPublicitaria>
 
             {/* galeria */}

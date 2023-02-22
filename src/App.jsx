@@ -11,11 +11,12 @@ const LazyNotFound = React.lazy( () => import('./pages/NotFound')  )
 // componentes
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Loading from './components/Loading'
 // funciones
 import { match } from './utils/functions/match'
 import { getData } from './utils/functions/getData'
+// constantes
 import { URL_API } from './utils/constantes/url'
-import Loading from './components/Loading'
 
 function App() {
   // partidos
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <>
-      <Header  />
+      <Header />
 
       <Routes>
 
