@@ -102,49 +102,58 @@ const Home = (  ) => {
             <section className='carrusel-container'>
                 <Carousel responsive={responsive}  >
                     {
-                        PARTIDOS.filter(partido => partido.categoria === "copa gchu" || "primera").slice(0, 6).map(partido => {
-                            return (
-                                <article className='carrusel-articulo'>
-                                    <div className="carrusel-fila">
-                                        <div className="carrousel-groupItem carrusel-infoPartido">
-                                            <span className=''> {partido.division !== 'copa gchu' ? `division ${partido.division}` : 'copa gchu'} </span>
-                                            <span className=''> {partido.jornada !== 'cuartos' || 'semi' || 'final' ? `fecha ${partido.jornada}` : `${partido.jornada}` }</span>
-                                        </div>
-                                    </div>
-                                    <div className='carrusel-fila'>
-                                        <div className='carrusel-groupItem carrusel-escudo'>
-                                            <img src={partido.local.escudo_equipo} alt={partido.local.nombre_equipo} loading='lazy' />
-                                        </div>
-                                        <div className='carrusel-groupItem carrusel-equipo'>
-                                            <span> {partido.local.nombre_equipo_short} </span>
-                                        </div>
-                                        <div className={partido.golLocal || partido.golLocal === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
-                                            { partido.golLocal || partido.golLocal === 0 ? <span> {partido.golLocal} </span> :
-                                                <div className='carrusel-diaPartido'>
-                                                    <img src={diaPartido} alt="dia del partido" loading='lazy' />
-                                                    <span> {partido.dia} </span>
-                                                </div> 
-                                            }
-                                        </div>
-                                    </div>
-                                    <div className='carrusel-fila'>
-                                        <div className='carrusel-groupItem carrusel-escudo'>
-                                            <img src={partido.visitante.escudo_equipo} alt={partido.visitante.nombre_equipo} loading='lazy' />
-                                        </div>
-                                        <div className='carrusel-groupItem carrusel-equipo'>
-                                            <span> {partido.visitante.nombre_equipo_short} </span>
-                                        </div>
-                                        <div className={partido.golVisitante || partido.golVisitante === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
-                                            { partido.golVisitante || partido.golVisitante === 0 ? <span> {partido.golVisitante} </span> :
-                                                <div className='carrusel-horaPartido'>
-                                                    <img src={horaPartido} alt="hora del partido" loading='lazy' />
-                                                    <span> {partido.hora} </span>
-                                                </div> 
-                                            }
-                                        </div>
-                                    </div>
-                                </article>
-                            )
+                        PARTIDOS.filter(partido => partido.categoria 
+                            === "copa gchu" 
+                            || "primera" 
+                            && partido.golLocal 
+                            || partido.golLocal === 0 
+                            && partido.golVisitante 
+                            || partido.golVisitante === 0)
+                                .reverse()
+                                .slice(0, 6)
+                                .map(partido => {
+                                    return (
+                                        <article className='carrusel-articulo'>
+                                            <div className="carrusel-fila">
+                                                <div className="carrousel-groupItem carrusel-infoPartido">
+                                                    <span className=''> {partido.division !== 'copa gchu' ? `division ${partido.division}` : 'copa gchu'} </span>
+                                                    <span className=''> {partido.jornada !== 'cuartos' || 'semi' || 'final' ? `fecha ${partido.jornada}` : `${partido.jornada}` }</span>
+                                                </div>
+                                            </div>
+                                            <div className='carrusel-fila'>
+                                                <div className='carrusel-groupItem carrusel-escudo'>
+                                                    <img src={partido.local.escudo_equipo} alt={partido.local.nombre_equipo} loading='lazy' />
+                                                </div>
+                                                <div className='carrusel-groupItem carrusel-equipo'>
+                                                    <span> {partido.local.nombre_equipo_short} </span>
+                                                </div>
+                                                <div className={partido.golLocal || partido.golLocal === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
+                                                    { partido.golLocal || partido.golLocal === 0 ? <span> {partido.golLocal} </span> :
+                                                        <div className='carrusel-diaPartido'>
+                                                            <img src={diaPartido} alt="dia del partido" loading='lazy' />
+                                                            <span> {partido.dia} </span>
+                                                        </div> 
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className='carrusel-fila'>
+                                                <div className='carrusel-groupItem carrusel-escudo'>
+                                                    <img src={partido.visitante.escudo_equipo} alt={partido.visitante.nombre_equipo} loading='lazy' />
+                                                </div>
+                                                <div className='carrusel-groupItem carrusel-equipo'>
+                                                    <span> {partido.visitante.nombre_equipo_short} </span>
+                                                </div>
+                                                <div className={partido.golVisitante || partido.golVisitante === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
+                                                    { partido.golVisitante || partido.golVisitante === 0 ? <span> {partido.golVisitante} </span> :
+                                                        <div className='carrusel-horaPartido'>
+                                                            <img src={horaPartido} alt="hora del partido" loading='lazy' />
+                                                            <span> {partido.hora} </span>
+                                                        </div> 
+                                                    }
+                                                </div>
+                                            </div>
+                                        </article>
+                                    )
                         })
                     }
                 </Carousel>
