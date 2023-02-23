@@ -1,7 +1,7 @@
 import React from 'react'
 import './Footer.css'
 import sportsSoccer from '../assets/sports_soccer.svg'
-import instagram from '../assets/instagram.svg'
+import linkedIn from '../assets/linkedIn.svg'
 import mail from '../assets/mail.svg'
 import logoKumpel from '../assets/logoKumpel.svg'
 // componentes
@@ -22,8 +22,8 @@ const Footer = () => {
                     <a href="https://www.kumpel.com.ar" target='_blank'>
                         <img  src={logoKumpel} alt="Logo de Kumpel" />
                     </a>
-                    <a href="https://www.instagram.com/kumpel/" target='_blank'>
-                        <img  src={instagram} alt="Instagram de Kumpel" />
+                    <a href="https://www.linkedin.com/company/kumpel/" target='_blank'>
+                        <img  src={linkedIn} alt="perfil de linkedIn de Kumpel" />
                     </a>
                     <Link to="/contacto">
                         <img src={mail} alt="Mail de Kumpel" />
