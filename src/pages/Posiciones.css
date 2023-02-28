@@ -324,9 +324,6 @@ tr:hover{
     }
 
     /* goleadores section */
-    .goleadores-section-container table{
-        font-size: 14px;
-    }
     .goleadores-section-container table tbody tr .td-nombreEquipoCorto{
         display: none;
     }

@@ -8,7 +8,6 @@ import Title from '../components/Title'
 const THEAD = 
 [
     {name: 'nombre'},
-    {name: 'equipo'},
     {name: 'goles'}
 ]
 
@@ -42,7 +41,7 @@ const Goleadores = () => {
                 <table>
                     <thead>
                         <tr>
-                            {THEAD.map(header => <th> {header.name} </th> )}
+                            {THEAD.map(header => <th colSpan={header.name === 'nombre' ? 2 : null}> {header.name} </th> )}
                         </tr>
                     </thead>
                     <tbody>
@@ -56,7 +55,7 @@ const Goleadores = () => {
                                                 <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                             </td>
-                                            <td className='goleadores-goles'> {item.gol} </td>
+                                            <td className='goleador-goles'> {item.gol} </td>
                                         </tr>
                                     )
                                 })}
