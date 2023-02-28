@@ -101,8 +101,9 @@ const Home = (  ) => {
             {/* carrusel */}
             <section className='carrusel-container'>
                 <Carousel responsive={responsive}  >
+                    
                     {
-                        PARTIDOS.filter(partido => partido.categoria 
+                        /* PARTIDOS.filter(partido => partido.categoria 
                             === "copa gchu" 
                             || "primera" 
                             && partido.golLocal 
@@ -111,6 +112,12 @@ const Home = (  ) => {
                             || partido.golVisitante === 0)
                                 .reverse()
                                 .slice(0, 6)
+                                .map(partido => { */
+                        PARTIDOS.filter(partido => partido.categoria 
+                            === "copa gchu" 
+                            || "primera")
+                                .reverse()
+                                .slice(0, 10)
                                 .map(partido => {
                                     return (
                                         <article className='carrusel-articulo'>
