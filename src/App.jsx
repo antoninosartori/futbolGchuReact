@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 // paginas
 const LazyCalendario = React.lazy( () => import('./pages/Calendario')  )
+const LazyGoleadores = React.lazy( () => import('./pages/Goleadores')  )
 const LazyContacto = React.lazy( () => import('./pages/Contacto')  )
 const LazyHome = React.lazy( () => import('./pages/Home')  )
 const LazyPosiciones = React.lazy( () => import('./pages/Posiciones')  )
@@ -17,6 +18,7 @@ import { match } from './utils/functions/match'
 import { getData } from './utils/functions/getData'
 // constantes
 import { URL_API } from './utils/constantes/url'
+import { GOLEADORES } from './utils/constantes/goleadores'
 
 function App() {
   // partidos
@@ -72,6 +74,14 @@ function App() {
           element={ 
             <React.Suspense fallback={ < Loading /> }>
               < LazyCalendario  />  
+            </React.Suspense>
+            }
+        />
+        < Route 
+          path='/goleadores' 
+          element={ 
+            <React.Suspense fallback={ < Loading /> }>
+              < LazyGoleadores  />  
             </React.Suspense>
             }
         />

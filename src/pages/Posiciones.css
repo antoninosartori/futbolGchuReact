@@ -230,6 +230,11 @@
     transition: var(--transitionTime);
 }
 
+/* goleadores section */
+.goleadores-section-container .goleador-nombre{
+    padding-left: 20px;
+    text-align: left;
+}
 
 tr:hover{
     font-weight: 700;
@@ -250,6 +255,8 @@ tr:hover{
     .tabla-container table tbody tr .td-nombreEquipoCorto{
         display: block;
     }
+
+    
 }
 
 @media (max-width: 576px) {
@@ -291,6 +298,15 @@ tr:hover{
     .calendario-container .goleadores-container .goleadores-locales span::before{
         font-size: 12px;
     }
+
+    /* goleadores section */
+    .goleadores-section-container table{
+        font-size: var(--fontSizeText-md);
+    }
+
+    .goleadores-section-container table .goleador-nombre{
+        padding: 5px 2px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -304,6 +320,14 @@ tr:hover{
     /* calendario */
     .calendario-container .td-diaPartido img,
     .calendario-container .td-horaPartido img{
+        display: none;
+    }
+
+    /* goleadores section */
+    .goleadores-section-container table{
+        font-size: 14px;
+    }
+    .goleadores-section-container table tbody tr .td-nombreEquipoCorto{
         display: none;
     }
 }

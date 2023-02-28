@@ -22,6 +22,10 @@ const navItems =
             path: '/calendario'
         },
         {
+            name: 'goleadores',
+            path: '/goleadores'
+        },
+        {
             name: 'contacto',
             path: '/contacto'
         }
