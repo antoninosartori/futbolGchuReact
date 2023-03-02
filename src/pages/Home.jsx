@@ -103,7 +103,7 @@ const Home = (  ) => {
                 <Carousel responsive={responsive}  >
                     
                     {
-                        /* PARTIDOS.filter(partido => partido.categoria 
+                    /* PARTIDOS.filter(partido => partido.categoria 
                             === "copa gchu" 
                             || "primera" 
                             && partido.golLocal 
@@ -112,7 +112,18 @@ const Home = (  ) => {
                             || partido.golVisitante === 0)
                                 .reverse()
                                 .slice(0, 6)
-                                .map(partido => { */
+                                .map(partido => { 
+                        
+                        idea: => para que no se muestren los partidos de la ultima fecha una vez llenado el fixture completo
+                        PARTIDOS.filter(partido => partido.categoria 
+                            === "copa gchu" 
+                            || "primera" 
+                            && partido.dia
+                            && partido.hora
+                            .reverse()
+                                .slice(0, 10)
+                                .map(partido => { 
+                    */
                         PARTIDOS.filter(partido => partido.categoria 
                             === "copa gchu" 
                             || "primera")
@@ -124,7 +135,11 @@ const Home = (  ) => {
                                             <div className="carrusel-fila">
                                                 <div className="carrousel-groupItem carrusel-infoPartido">
                                                     <span className=''> {partido.division !== 'copa gchu' ? `division ${partido.division}` : 'copa gchu'} </span>
-                                                    <span className=''> {partido.jornada !== 'cuartos' || 'semi' || 'final' ? `fecha ${partido.jornada}` : `${partido.jornada}` }</span>
+                                                    {
+                                                        partido.jornada === 'cuartos' || partido.jornada === 'semi' || partido.jornada === 'final' 
+                                                        ?   <span>{partido.jornada}</span>
+                                                        :   <span>{`fecha ${partido.jornada}`}</span>
+                                                    }    
                                                 </div>
                                             </div>
                                             <div className='carrusel-fila'>

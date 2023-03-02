@@ -1022,5 +1022,5 @@ export const EQUIPOS = [
         gf: 0,
         gc: 0,
         dif: 0,
-    }
+    },
 ];

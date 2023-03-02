@@ -21,6 +21,14 @@ const selectCopa = [
     {value: 'grupo f', text: 'grupo f'}
 ]
 
+const selectCopaJornada = [
+    { value: '1' ,text: 'fecha 1' },
+    { value: '2' ,text: 'fecha 2' },
+    { value: 'cuartos' ,text: 'cuartos' },
+    { value: 'semi' ,text: 'semi' },
+    { value: 'final' ,text: 'final' },
+]
+
 // assets
 import diaPartido from '../assets/diaPartido.svg'
 import horaPartido from '../assets/horaPartido.svg'
@@ -33,6 +41,7 @@ const Calendario = () => {
     const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
     const [ jornada, setJornada ] = useState('1') // estado inicial que van a ser cambiados por los select
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
+    const [selectsOptionsJornada, setSelectsOptionsJornada] = useState(selectCopaJornada)
 
     useEffect(() => {
         setPartidosFiltrados(allPartidos.filter(partidos => partidos.division === division && partidos.categoria === categoria && partidos.jornada === jornada))
@@ -52,7 +61,25 @@ const Calendario = () => {
         if( division === 'copa gchu' && !categoria.startsWith('grupo') ){
             setCategoria('grupo a')
         }
-    }, [division])
+
+        const isCopaGchuJornada = division === 'copa gchu' ? selectCopaJornada : [{value: '1', text: 'fecha 1'}]
+        setSelectsOptionsJornada(isCopaGchuJornada)
+
+        if( division === 'a' && jornada.startsWith('cuartos') ){
+            setJornada('1')
+        }
+        if( division === 'b' && jornada.startsWith('cuartos') ){
+            setJornada('1')
+        }
+
+        if(jornada === 'cuartos') { 
+            setCategoria('cuartos') 
+            console.log(categoria)
+        }
+        console.log(division)
+        console.log(categoria)
+        console.log(jornada)
+    }, [division, jornada, categoria])
 
     const changeSelectDivision = (event) => {
         const value = event.target.value;
@@ -90,9 +117,10 @@ const Calendario = () => {
                         { selectsOptions.map(item => <option key={item.value} value={item.value} > {item.text} </option>) }
                     </select>
                     <select value={jornada} name="jornada" onChange={changeSelectJornada}>
-                        <option value='1'>fecha 1</option>
+                        {/* <option value='1'>fecha 1</option>
                         <option value='2'>fecha 2</option>
-                        <option value='3'>fecha 3</option>
+                        <option value='3'>fecha 3</option> */}
+                        { selectsOptionsJornada.map(item => <option key={item.value} value={item.value}> {item.text} </option> ) }
                     </select>
                 </form>
 
