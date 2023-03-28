@@ -8,6 +8,8 @@ import MensajeEmail from '../components/MensajeEmail';
 import mail from '../assets/mail_green.svg'
 
 const Contacto = () => {
+    window.scrollTo(0, 0);
+    
     const [sent, setSent] = useState(false);
     const [notSent, setNotSent] = useState(false);
     const [isNotValidate, setIsNotValidated] = useState('');
@@ -58,7 +60,7 @@ const Contacto = () => {
                     <div className="contacto-informacion">
                         <div className='contacto-informacion--publicidad'>
                             <img src={mail} alt="imagen de mail" />
-                            <p>Si estas interesado en publicitar en Futbol Gchu completa el formulario con tus datos.</p>
+                            <p>Si estás interesado en publicitar en Futbol Gchu completá el formulario con tus datos.</p>
                         </div>
                         <div className='contacto-informacion--disclaimer'>
                             <p>Futbol Gchu es desarrollado y administrado por <span>Kumpel</span>.</p>
@@ -80,7 +82,7 @@ const Contacto = () => {
                         }
                         {sent && !isNotValidate &&
                             < MensajeEmail
-                                mensaje={'¡Mensaje Enviado! Sera respondido a la brevedad. Muchas gracias'}
+                                mensaje={'¡Mensaje Enviado! Será respondido a la brevedad. Muchas gracias'}
                                 estado={true} />
                         }
                         {notSent && !sent && !isNotValidate &&

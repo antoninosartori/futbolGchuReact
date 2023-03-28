@@ -231,6 +231,11 @@
 }
 
 /* goleadores section */
+.goleadores-section-container table thead tr th:first-child{
+   text-align: left;
+   padding-left: 20px;
+}
+
 .goleadores-section-container .goleador-nombre{
     padding-left: 20px;
     text-align: left;
@@ -310,6 +315,10 @@ tr:hover{
 }
 
 @media (max-width: 380px) {
+    .tabla-container table tbody tr .td-nombreEquipo{
+        display: table-cell;
+    }
+
     .td-goles{
         display: none;
     }

@@ -45,6 +45,8 @@ import diaPartido from '../assets/diaPartido.svg'
 import horaPartido from '../assets/horaPartido.svg'
 
 const Home = (  ) => {
+    window.scrollTo(0, 0);
+
     // noticias
     const [ noticias, setNoticias ] = useState([]);
 
@@ -93,7 +95,7 @@ const Home = (  ) => {
                 to='/contacto'
                 > 
                     <div style={{height: '100%', width: '100%', display: 'flex', flexDirection: 'column', alignItems:'center',justifyContent:'center', backgroundColor: '#0000003f', padding: '10px', borderRadius: '10px'}}>
-                        <h3 style={{color: '#fff', fontSize: '30px'}}>Publicita Aqui</h3>
+                        <h3 style={{color: '#fff', fontSize: '30px'}}>Publicita Aquí</h3>
                         <p style={{color: '#fff', fontSize: '30px'}}>Lleva tu negocio al siguiente nivel en FG</p>
                     </div>
             </ImagenPublicitaria >
@@ -149,7 +151,7 @@ const Home = (  ) => {
                                                 <div className='carrusel-groupItem carrusel-equipo'>
                                                     <span> {partido.local.nombre_equipo_short} </span>
                                                 </div>
-                                                <div className={partido.golLocal || partido.golLocal === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
+                                                <div className={partido.golLocal || partido.golLocal === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexEnd`}>
                                                     { partido.golLocal || partido.golLocal === 0 ? <span> {partido.golLocal} </span> :
                                                         <div className='carrusel-diaPartido'>
                                                             <img src={diaPartido} alt="dia del partido" loading='lazy' />
@@ -165,7 +167,7 @@ const Home = (  ) => {
                                                 <div className='carrusel-groupItem carrusel-equipo'>
                                                     <span> {partido.visitante.nombre_equipo_short} </span>
                                                 </div>
-                                                <div className={partido.golVisitante || partido.golVisitante === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexStart`}>
+                                                <div className={partido.golVisitante || partido.golVisitante === 0 ? `carrusel-groupItem carrusel-gol-dia` : `carrusel-groupItem carrusel-gol-dia carrusel-horaFecha--flexEnd`}>
                                                     { partido.golVisitante || partido.golVisitante === 0 ? <span> {partido.golVisitante} </span> :
                                                         <div className='carrusel-horaPartido'>
                                                             <img src={horaPartido} alt="hora del partido" loading='lazy' />
@@ -186,7 +188,7 @@ const Home = (  ) => {
             <section className='tabla-container posicionesPreview-container'>
                 
                 <div className='posicionesPreview-sideContainer'>
-                    <h2>Division A</h2>
+                    <h2>División A</h2>
                     <table>
                         <thead>
                             <tr>
@@ -214,7 +216,7 @@ const Home = (  ) => {
                     </table>
                 </div>
                 <div className='posicionesPreview-sideContainer'>
-                    <h2>Division B</h2>
+                    <h2>División B</h2>
                     <table>
                         <thead>
                             <tr>
@@ -282,7 +284,7 @@ const Home = (  ) => {
 
             {/* galeria */}
             <section className='galeria-container'>
-                <Title>galeria</Title>
+                <Title>galería</Title>
                 <div className='galeria-gridContainer'>
                     { galeria.map( (foto, idx) => <img src={foto.src} alt={foto.alt} loading='lazy' onClick={handleModal} indice={idx} /> ) }
                 </div>
@@ -290,7 +292,7 @@ const Home = (  ) => {
                 <div className='galeria-parrafoContainer'>
                     <div className='galeria-parrafos--flex'>
                         <p>¿Sos fotografo/a?</p>
-                        <p>¡Podemos publicar tus fotos dandote credito!</p>
+                        <p>¡Podemos publicar tus fotos dandote crédito!</p>
                     </div>
                     <GenericButton to='/contacto'>¡hablemos!</GenericButton>
                 </div>

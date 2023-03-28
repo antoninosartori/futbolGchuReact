@@ -18,7 +18,6 @@ import { match } from './utils/functions/match'
 import { getData } from './utils/functions/getData'
 // constantes
 import { URL_API } from './utils/constantes/url'
-import { GOLEADORES } from './utils/constantes/goleadores'
 
 function App() {
   // partidos

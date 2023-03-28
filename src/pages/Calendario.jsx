@@ -34,6 +34,7 @@ import diaPartido from '../assets/diaPartido.svg'
 import horaPartido from '../assets/horaPartido.svg'
 
 const Calendario = () => {
+    window.scrollTo(0, 0);
 
     const [allPartidos, setAllPartidos] = useState(PARTIDOS)
     const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'copa gchu' && partidos.categoria === 'grupo a' && partidos.jornada === 1))
@@ -74,11 +75,16 @@ const Calendario = () => {
 
         if(jornada === 'cuartos') { 
             setCategoria('cuartos') 
-            console.log(categoria)
         }
-        console.log(division)
-        console.log(categoria)
-        console.log(jornada)
+
+        if(jornada === 'semi') { 
+            setCategoria('semi') 
+        }
+
+        if(jornada === 'final') { 
+            setCategoria('final') 
+        }
+       
     }, [division, jornada, categoria])
 
     const changeSelectDivision = (event) => {
@@ -109,8 +115,8 @@ const Calendario = () => {
 
                 <form action="">
                     <select value={division} name="division" onChange={changeSelectDivision}>
-                        <option value="a">division a</option>
-                        <option value="b">division b</option>
+                        <option value="a">división a</option>
+                        <option value="b">división b</option>
                         <option value="copa gchu">copa gchu</option>
                     </select>
                     <select value={categoria} name="categoria" onChange={changeSelectCategoria}>

@@ -12,6 +12,8 @@ const THEAD =
 ]
 
 const Goleadores = () => {
+    window.scrollTo(0, 0);
+    
     const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
     const [ goleadoresFiltrados, setGoleadoresFiltrados ] = useState(GOLEADORES.filter(goleadores => goleadores.division === 'copa gchu').sort((a,b) => (b.gol - a.gol)))
 
@@ -32,8 +34,8 @@ const Goleadores = () => {
 
                 <form action="">
                     <select value={division} name="division" onChange={changeSelectDivision}>
-                        <option value="a">division a</option>
-                        <option value="b">division b</option>
+                        <option value="a">división a</option>
+                        <option value="b">división b</option>
                         <option value="copa gchu">copa gchu</option>
                     </select>
                 </form>

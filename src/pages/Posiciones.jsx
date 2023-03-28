@@ -30,6 +30,8 @@ const selectCopa = [
 ]
 
 const Posiciones = () => {
+    window.scrollTo(0, 0);
+    
     const [posiciones, setPosiciones] = useState(EQUIPOS) // estado inicial antes de filtrarse
     const [posicionesFiltradas, setPosicionesFiltradas] = 
         useState(posiciones.filter(equipos => equipos.division === 'copa gchu' && equipos.categoria === 'grupo a')
@@ -87,8 +89,8 @@ const Posiciones = () => {
 
                 <form >
                     <select value={division} name="division" id="division"  onChange={changeSelectDivision}>
-                        <option  value="a">division a</option>
-                        <option  value="b">division b</option>
+                        <option  value="a">división a</option>
+                        <option  value="b">división b</option>
                         <option  value="copa gchu">copa gchu</option>
                     </select>
                     <select value={categoria} name="categoria" id="categoria" onChange={changeSelectCategoria}>
