@@ -29,6 +29,20 @@ const selectCopaJornada = [
     { value: 'final' ,text: 'final' },
 ]
 
+const selectCampeonatoJornada = [
+    { value: '1' ,text: 'fecha 1' },
+    { value: '2' ,text: 'fecha 2' },
+    { value: '3' ,text: 'fecha 3' },
+    { value: '4' ,text: 'fecha 4' },
+    { value: '5' ,text: 'fecha 5' },
+    { value: '6' ,text: 'fecha 6' },
+    { value: '7' ,text: 'fecha 7' },
+    { value: '8' ,text: 'fecha 8' },
+    { value: '9' ,text: 'fecha 9' },
+    { value: '10' ,text: 'fecha 10' },
+    { value: '11' ,text: 'fecha 11' },
+]
+
 // assets
 import diaPartido from '../assets/diaPartido.svg'
 import horaPartido from '../assets/horaPartido.svg'
@@ -38,8 +52,8 @@ const Calendario = () => {
 
     const [allPartidos, setAllPartidos] = useState(PARTIDOS)
     const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'copa gchu' && partidos.categoria === 'grupo a' && partidos.jornada === 1))
-    const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
-    const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
+    const [ division, setDivision ] = useState('a') // estado inicial que van a ser cambiados por los select
+    const [ categoria, setCategoria ] = useState('primera') // estado inicial que van a ser cambiados por los select
     const [ jornada, setJornada ] = useState('1') // estado inicial que van a ser cambiados por los select
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
     const [selectsOptionsJornada, setSelectsOptionsJornada] = useState(selectCopaJornada)
@@ -63,7 +77,7 @@ const Calendario = () => {
             setCategoria('grupo a')
         }
 
-        const isCopaGchuJornada = division === 'copa gchu' ? selectCopaJornada : [{value: '1', text: 'fecha 1'}]
+        const isCopaGchuJornada = division === 'copa gchu' ? selectCopaJornada : selectCampeonatoJornada
         setSelectsOptionsJornada(isCopaGchuJornada)
 
         if( division === 'a' && jornada.startsWith('cuartos') ){

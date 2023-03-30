@@ -35,6 +35,7 @@ function App() {
         partido.jornada,
         partido.division,
         partido.categoria,
+        partido.isCarrusel,
         partido.dia,
         partido.hora,
         partido.equipoLocal,

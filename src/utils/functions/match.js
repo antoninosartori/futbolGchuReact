@@ -3,7 +3,7 @@ import { GOLEADORES } from "../constantes/goleadores";
 import { PARTIDOS } from "../constantes/partidos";
 import { sumaPunto } from "./sumaPunto";
 
-export function match(jornada, division, categoria ,dia, hora, equipoLocal, golLocal, equipoVisitante, golVisitante, goleadoresLocales, goleadoresVisitantes){
+export function match(jornada, division, categoria, isCarrusel ,dia, hora, equipoLocal, golLocal, equipoVisitante, golVisitante, goleadoresLocales, goleadoresVisitantes){
     
     /* if(jornada === 'cuartos' || 'semi' || 'final' && division === 'copa gchu') {
         let local = EQUIPOS.find(e => e.nombre_equipo === equipoLocal);
@@ -56,19 +56,19 @@ export function match(jornada, division, categoria ,dia, hora, equipoLocal, golL
 
     //partidos
 
-    if (!golLocal && !golVisitante) {return PARTIDOS.push({jornada, division, categoria , local, visitante, golLocal, golVisitante, dia, hora, goleadoresLocales, goleadoresVisitantes }) 
+    if (!golLocal && !golVisitante) {return PARTIDOS.push({jornada, division, categoria , isCarrusel , local, visitante, golLocal, golVisitante, dia, hora, goleadoresLocales, goleadoresVisitantes }) 
     }
     else if(golLocal > golVisitante){
         sumaPunto(local, visitante, 'VL', golLocal, golVisitante);
-        return PARTIDOS.push({jornada, division, categoria , local, visitante, golLocal, golVisitante, dia,hora, goleadoresLocales, goleadoresVisitantes})
+        return PARTIDOS.push({jornada, division, categoria, isCarrusel , local, visitante, golLocal, golVisitante, dia,hora, goleadoresLocales, goleadoresVisitantes})
     }
     else if(golLocal < golVisitante){
         sumaPunto(local, visitante, 'VV', golLocal, golVisitante);
-        return PARTIDOS.push({jornada, division, categoria , local, visitante, golLocal,golVisitante, dia,hora, goleadoresLocales, goleadoresVisitantes})
+        return PARTIDOS.push({jornada, division, categoria, isCarrusel , local, visitante, golLocal,golVisitante, dia,hora, goleadoresLocales, goleadoresVisitantes})
     }
     else if(golLocal === golVisitante){
         sumaPunto(local, visitante, 'E', golLocal, golVisitante);
-        return PARTIDOS.push({jornada, division, categoria , local, visitante, golLocal, golVisitante, dia,hora, goleadoresLocales, goleadoresVisitantes})
+        return PARTIDOS.push({jornada, division, categoria, isCarrusel , local, visitante, golLocal, golVisitante, dia,hora, goleadoresLocales, goleadoresVisitantes})
     }
 
 }
