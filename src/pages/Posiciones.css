@@ -315,7 +315,7 @@ tr:hover{
 }
 
 @media (max-width: 380px) {
-    .tabla-container table tbody tr .td-nombreEquipo{
+    .goleadores-section-container table tbody tr .td-nombreEquipo{
         display: table-cell;
     }
 
