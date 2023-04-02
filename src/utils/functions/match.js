@@ -19,7 +19,8 @@ export function match(jornada, division, categoria, isCarrusel ,dia, hora, equip
     if(goleadoresLocales){
         goleadoresLocales.split(',').map(gol => {
             if(gol.includes('(ec)')){ return null }
-            const isInGOLEADORES = GOLEADORES.some(jugador => jugador.nombre === gol)
+            
+            const isInGOLEADORES = GOLEADORES.some(jugador => jugador.nombre === gol && jugador.division === local.division )
             if(!isInGOLEADORES){
                 GOLEADORES.push(  { 
                     nombre: gol,
@@ -38,7 +39,7 @@ export function match(jornada, division, categoria, isCarrusel ,dia, hora, equip
     if(goleadoresVisitantes){
         goleadoresVisitantes.split(',').map(gol => {
             if(gol.includes('(ec)')){ return null }
-            const isInGOLEADORES = GOLEADORES.some(jugador => jugador.nombre === gol)
+            const isInGOLEADORES = GOLEADORES.some(jugador => jugador.nombre === gol && jugador.division === visitante.division )
             if(!isInGOLEADORES){
                 GOLEADORES.push(  { 
                     nombre: gol,
