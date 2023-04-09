@@ -245,9 +245,11 @@
     text-align: left;
 }
 
-tr:hover{
-    font-weight: 700;
+.posiciones-container table tbody tr td:hover{
+    /* font-weight: 700; */
     cursor: pointer;
+    background-color: var(--color3);
+    color: var(--color2);
 }
 
 @media (max-width: 992px) {

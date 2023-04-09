@@ -57,7 +57,7 @@ export function match(jornada, division, categoria, isCarrusel ,dia, hora, equip
 
     //partidos
 
-    if (!golLocal && !golVisitante) {return PARTIDOS.push({jornada, division, categoria , isCarrusel , local, visitante, golLocal, golVisitante, dia, hora, goleadoresLocales, goleadoresVisitantes }) 
+    if (golLocal === null || undefined && golVisitante === null || undefined) {return PARTIDOS.push({jornada, division, categoria , isCarrusel , local, visitante, golLocal, golVisitante, dia, hora, goleadoresLocales, goleadoresVisitantes }) 
     }
     else if(golLocal > golVisitante){
         sumaPunto(local, visitante, 'VL', golLocal, golVisitante);
