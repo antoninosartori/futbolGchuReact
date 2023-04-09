@@ -34,11 +34,11 @@ const Posiciones = () => {
     
     const [posiciones, setPosiciones] = useState(EQUIPOS) // estado inicial antes de filtrarse
     const [posicionesFiltradas, setPosicionesFiltradas] = 
-        useState(posiciones.filter(equipos => equipos.division === 'copa gchu' && equipos.categoria === 'grupo a')
+        useState(posiciones.filter(equipos => equipos.division === 'a' && equipos.categoria === 'primera')
             .sort((a,b) => (b.pts * 1000 + b.dif) - (a.pts * 1000 + a.dif))) // estado por el cual se va a filtrar y mostrar las posiciones
-    const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
-    const [ categoria, setCategoria ] = useState('grupo a') // estado inicial que van a ser cambiados por los select
-    const [selectsOptions, setSelectsOptions] = useState(selectCopa)
+    const [ division, setDivision ] = useState('a') // estado inicial que van a ser cambiados por los select
+    const [ categoria, setCategoria ] = useState('primera') // estado inicial que van a ser cambiados por los select
+    const [selectsOptions, setSelectsOptions] = useState(selectDivision)
 
     // filtra a las posiciones
     useEffect(() => {
@@ -114,7 +114,7 @@ const Posiciones = () => {
                                                 <span className='td-nombreEquipoLargo'> {item.nombre_equipo} </span>
                                                 <span className='td-nombreEquipoCorto'> {item.nombre_equipo_short} </span>
                                             </td>
-                                            <td >{item.pts}</td>
+                                            <td className='td-puntos'>{item.pts}</td>
                                             <td>{item.pj}</td>
                                             <td>{item.pg}</td>
                                             <td>{item.pe}</td>

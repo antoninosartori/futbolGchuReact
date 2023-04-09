@@ -99,6 +99,10 @@
     align-items: center;
 }
 
+.tabla-container table tbody .td-puntos {
+    font-weight: bold;
+}
+
 /* calendario */
 .calendario-container table tbody tr{
     position: relative;

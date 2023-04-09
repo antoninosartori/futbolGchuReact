@@ -51,10 +51,10 @@ const Calendario = () => {
     window.scrollTo(0, 0);
 
     const [allPartidos, setAllPartidos] = useState(PARTIDOS)
-    const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'copa gchu' && partidos.categoria === 'grupo a' && partidos.jornada === 1))
+    const [ partidosFiltrados, setPartidosFiltrados ] = useState(allPartidos.filter(partidos => partidos.division === 'a' && partidos.categoria === 'primera' && partidos.jornada === 2))
     const [ division, setDivision ] = useState('a') // estado inicial que van a ser cambiados por los select
     const [ categoria, setCategoria ] = useState('primera') // estado inicial que van a ser cambiados por los select
-    const [ jornada, setJornada ] = useState('1') // estado inicial que van a ser cambiados por los select
+    const [ jornada, setJornada ] = useState('2') // estado inicial que van a ser cambiados por los select
     const [selectsOptions, setSelectsOptions] = useState(selectCopa)
     const [selectsOptionsJornada, setSelectsOptionsJornada] = useState(selectCopaJornada)
 

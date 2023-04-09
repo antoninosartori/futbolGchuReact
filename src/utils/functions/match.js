@@ -12,8 +12,8 @@ export function match(jornada, division, categoria, isCarrusel ,dia, hora, equip
         return PARTIDOS.push({ jornada, division, categoria , local, visitante, golLocal, golVisitante, dia, hora, goleadoresLocales, goleadoresVisitantes })
     } */
 
-    let local = EQUIPOS.find(e => e.nombre_equipo === equipoLocal && e.categoria === categoria);
-    let visitante = EQUIPOS.find(e => e.nombre_equipo === equipoVisitante && e.categoria === categoria);
+    let local = EQUIPOS.find(e => e.nombre_equipo === equipoLocal && e.categoria === categoria && e.division === division);
+    let visitante = EQUIPOS.find(e => e.nombre_equipo === equipoVisitante && e.categoria === categoria && e.division === division);
 
     // goleadores
     if(goleadoresLocales){
@@ -31,7 +31,7 @@ export function match(jornada, division, categoria, isCarrusel ,dia, hora, equip
                     division: local.division
                  }  )
             } else {
-                GOLEADORES.find(jugador => jugador.nombre === gol && division === local.division).gol++
+                GOLEADORES.find(jugador => jugador.nombre === gol && jugador.division === local.division).gol++
             } 
         })
     }
@@ -50,7 +50,7 @@ export function match(jornada, division, categoria, isCarrusel ,dia, hora, equip
                     division: visitante.division
                  }  )
             } else {
-                GOLEADORES.find(jugador => jugador.nombre === gol && division === visitante.division).gol++
+                GOLEADORES.find(jugador => jugador.nombre === gol && jugador.division === visitante.division).gol++
             } 
         })
     }

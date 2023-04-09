@@ -14,12 +14,13 @@ const THEAD =
 const Goleadores = () => {
     window.scrollTo(0, 0);
     
-    const [ division, setDivision ] = useState('copa gchu') // estado inicial que van a ser cambiados por los select
-    const [ goleadoresFiltrados, setGoleadoresFiltrados ] = useState(GOLEADORES.filter(goleadores => goleadores.division === 'copa gchu').sort((a,b) => (b.gol - a.gol)))
+    const [ division, setDivision ] = useState('a') // estado inicial que van a ser cambiados por los select
+    const [ goleadoresFiltrados, setGoleadoresFiltrados ] = useState(GOLEADORES.filter(goleadores => goleadores.division === 'a').sort((a,b) => (b.gol - a.gol)))
+
+    
 
     useEffect(() => {
         setGoleadoresFiltrados(GOLEADORES.filter(goleadores => goleadores.division === division).sort((a,b) => (b.gol - a.gol)))
-
     }, [division] )
 
     const changeSelectDivision = (event) => {
@@ -47,7 +48,6 @@ const Goleadores = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {console.log(goleadoresFiltrados)}
                         {goleadoresFiltrados?.map((item, idx) => {
                                     return(
                                         <tr key={item.nombre}>

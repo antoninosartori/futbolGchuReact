@@ -84,6 +84,7 @@ const Home = (  ) => {
         if(!indice) {return} else {setIndice(indice)}
         if(!src) { return } else {setImage(src)}
     }
+    {console.log({PARTIDOS})}
 
     return(
         <main className='home'  >
